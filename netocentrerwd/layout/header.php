@@ -56,27 +56,14 @@ $courseheader = $coursecontentheader = $coursecontentfooter = $coursefooter = ''
             <a href="<?php echo $CFG->wwwroot;?>"><?php if ($haslogo) {
  echo html_writer::empty_tag('img', array('src'=>$PAGE->theme->settings->logo, 'class'=>'logo')); }
 
- /* Moficiation Recia - le chemin vers le logo n'est plus défini en base mais relatif au thème
- else { ?><a class="brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; }?></a> */
  else { echo html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('logo', 'theme'), 'class'=>'logo')); }?></a>
 			
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <div class="nav-collapse collapse">
-          <?php  if ((!isloggedin()) && ($hashidemenu)){}
-
-		  else if ($hascustommenu) {
-                echo $custommenu;
-				
-            } ?>
-            <ul class="nav pull-right">
-            <li><?php echo $PAGE->headingmenu;
+	    <div>
+                <ul class="nav pull-right">
+                <li><?php echo $PAGE->headingmenu;
 			include('profileblock.php');?></li>
-            </ul>
-            </div>
+                </ul>
+            </div> 
         </div>
     </nav>
 </header>
@@ -84,11 +71,9 @@ $courseheader = $coursecontentheader = $coursecontentfooter = $coursefooter = ''
 <div id="page" class="container-fluid">
 
 <header id="page-header" class="clearfix">
-	<?php if ($hasnavbar) { /* Modification RECIA - Inversé pour présentation - CD - 27/01/2015 ?>
-        <nav class="breadcrumb-button"><?php echo $PAGE->button; ?></nav>
-		<?php echo $OUTPUT->navbar(); ?>*/ ?>
-        <?php echo $OUTPUT->navbar(); ?>
-        <nav class="breadcrumb-button"><?php echo $PAGE->button; ?></nav>
+	<?php if ($hasnavbar) { 
+              echo $OUTPUT->navbar(); ?>
+              <nav class="breadcrumb-button"><?php echo $PAGE->button; ?></nav>
     <?php } ?>
     <h1><?php echo $PAGE->heading ?></h1>
 

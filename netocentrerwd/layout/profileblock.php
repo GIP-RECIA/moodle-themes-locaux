@@ -43,64 +43,10 @@
 
 <li class="dropdown">
 <a class="dropdown-toggle" data-toggle="dropdown" href="#cm_submenu_5"><img class="profilepic" src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="'.$USER->firstname.' '.$USER->lastname.'" alt="'.$USER->firstname.' '.$USER->lastname.'" />
-'.$USER->firstname.'
+<span class="profilename">'.$USER->firstname.'</span>
 <b class="caret"></b>
 </a>
 <ul class="dropdown-menu profiledrop">';
-/* Modification Recia - Ce menu disparait dans les versions plus récentes d'aardvark et est remplacé par
-la fonction de création de menu prévue par moodle.
-
-echo '<li>';
-echo '<a href="'.$CFG->wwwroot.'/my">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/course', 'theme').'" />';
-echo get_string('mycourses');
-echo '</a>';
-echo '</li>';
-
-echo '<li>';
-echo '<a href="'.$CFG->wwwroot.'/user/profile.php">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/profile', 'theme').'" />';
-echo get_string('viewprofile');
-echo '</a>';
-echo '</li>';
-
-echo '<li>';
-echo '<a href="'.$CFG->wwwroot.'/user/edit.php">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/edit', 'theme').'" />';
-echo get_string('editmyprofile');
-echo '</a>';
-echo '</li>';
-
-echo '<li>';
-echo '<a href="'.$CFG->wwwroot.'/user/files.php">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/files', 'theme').'" />';
-echo get_string('myfiles');
-echo '</a>';
-echo '</li>';
-
-echo '<li>';
-echo '<a href="'.$CFG->wwwroot.'/calendar/view.php?view=month">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/calendar', 'theme').'" />';
-echo get_string('calendar','calendar');
-echo '</a>';
-echo '</li>';
-
-if ($hasemailurl) {
-echo '<li>';
-echo '<a href="'.$PAGE->theme->settings->emailurl.'">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/email', 'theme').'" />';
-echo get_string('email','theme_aardvark');
-echo '</a>';
-echo '</li>';
-}
-
-echo '<li>';
-echo '<a href="'.$CFG->wwwroot.'/login/logout.php">';
-echo '<img class="profileicon" src="'.$OUTPUT->pix_url('profile/logout', 'theme').'" />';
-echo get_string('logout');
-echo '</a>';
-echo '</li>';
-*/
 
 echo '<li>';
 echo '<a href="'.$CFG->wwwroot.'/my">';
@@ -162,15 +108,10 @@ echo '</li>';
 $addlangmenu = true;
 $langs = get_string_manager()->get_list_of_translations();
 if (count($langs) < 2
-	/*or empty($CFG->langmenu) */
    or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
    $addlangmenu = false;
 }
 		        
-/*		        if (!$menu->has_children() && $addlangmenu === false) {
-					            return '';
-}    */
-		            
 if ($addlangmenu) {
    $strlang =  get_string('language');
    $currentlang = current_language();
@@ -191,8 +132,6 @@ if ($addlangmenu) {
    echo '</ul>';
    echo '</li>';
 }   
-
-/* Fin de modifications Recia */
 
 echo '</ul></li></ul>';
 
