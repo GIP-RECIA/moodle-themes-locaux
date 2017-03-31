@@ -1,0 +1,277 @@
+/* Personnalisation des couleurs du thème */
+body , h1, #page-header h1, h2, .block .header h2, h3, a.dimmed, a.dimmed:link, a.dimmed:visited, a.dimmed_text, a.dimmed_text:link, a.dimmed_text:visited, .dimmed_text, .dimmed_text a, .dimmed_text a:link, .dimmed_text a:visited, .usersuspended, .usersuspended a, .usersuspended a:link, .usersuspended a:visited, .dimmed_category, .dimmed_category a {
+    color: #333;
+}
+input.form-submit, input#id_submitbutton, input#id_submitbutton2, .path-admin .buttons input[type="submit"], td.submit input {
+    background-color: #4070a1;
+    background-image: linear-gradient(to top, #25b2f3, #4070a1);
+}
+
+/* Personnalisation des couleurs du menu (Bleu) */
+.navbar .nav > li > a, .navbar .nav li.dropdown > .dropdown-toggle .caret {
+    border-bottom-color: #ccc;
+    border-top-color: #ccc;
+    color: #ccc;
+}
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+	background-color: #515658;
+}
+.navbar .btn-navbar .icon-bar {
+    background-color: #169;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle, a {
+	color : #169;
+}
+a:hover, a:focus {
+    color: #25b2f3;
+}
+.dropdown-menu > li > a {
+    color: #169;
+}
+.navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    color: #fff;
+    background-color: #169;
+}
+.navbar .nav li.dropdown > a:hover .caret, .navbar .nav li.dropdown > a:focus .caret, .navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.active > .dropdown-toggle .caret, .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+    border-bottom-color: #fff;
+    border-top-color: #fff;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+    background-color: #169;
+    color: #fff;
+}
+@media (max-width: 979px) {
+	.nav-collapse .dropdown-menu a {
+		color: #ccc;
+	}
+}
+
+/* Fil d'Ariane */
+#page-header .breadcrumb {
+	padding: 4px 0 4px 8px;
+}
+#page-header li.breadcrumb {
+    display: inline-block;
+}
+#page-header ul.breadcrumb {
+    margin: -15px 0 5px 0;
+}
+/* Menu principal */
+.navbar-inner .container-fluid {
+	padding-left: 0;
+}
+.navbar-inner .nav-collapse.collapse {
+	float: right;
+}
+.navbar .logo {
+	margin-top: 0;
+}
+.hr_menu {
+    margin: 0;
+}
+body:not(.jsenabled) .langmenu:hover>.dropdown-menu, .langmenu.open>.dropdown-menu {
+max-height: inherit;
+}
+
+/* Bouton mode édition */
+.breadcrumb-button {
+	float: right;
+	margin-top: 0px;
+	text-align: right;
+}
+.breadcrumb-button .singlebutton input {
+	margin: 0 0 1px 0;
+}
+
+/* Pied de page */
+#page-footer #PageFooterLinks {
+    margin: 0 0 2em -20px;
+    text-align: left;
+}
+#page-footer #PageFooterLinks img {
+    margin-left: 0.5em ;
+}
+#page-footer .helplink {
+    display: none;
+}
+div#theme_switch_link {
+	display: none;
+}
+
+/* Ajustement des cours dans les blocks my_course */
+.block_mycourse_teacher .coursebox .content .teachers, .block_mycourse_teacher .coursebox .content .courseimage, .block_mycourse_teacher .coursebox .content .coursefile , .block_mycourse_student .coursebox .content .teachers, .block_mycourse_student .coursebox .content .courseimage, .block_mycourse_student .coursebox .content .coursefile {
+    width: 100%;
+}
+.block_mycourse_teacher .coursebox .content .summary, .block_mycourse_teacher .coursebox .content .coursecat, .block_mycourse_student .coursebox .content .summary, .block_mycourse_student .coursebox .content .coursecat {
+    float: none;
+    width: 100%;
+}
+
+/* Block course_overview_esco */
+.block_course_overview_esco .categorypath {
+    color: #999;
+}
+
+/* Style pour les basses résolutions */
+@media (max-width: 979px) {
+	.navbar-fixed-top .navbar-inner {
+		padding: 0;
+	}
+    #page-footer #PageFooterLinks img {
+        height: 38px;
+    }
+}
+@media (max-width: 560px) {
+    #page-footer #PageFooterLinks img {
+        height: 28px;
+    }
+}
+
+/* Améliorations visuelles en basse résolution */
+@media (max-width: 560px) {
+    #page-header>ul.breadcrumb {
+        padding: 4px 8px;
+    }
+    #page-header {
+        padding: 0 5px;
+        margin: 0 -20px 0 -20px;
+    }
+    #page-header > ul.breadcrumb {
+        padding: 4px 8px;
+        margin: -20px -5px 0px -5px;
+    }
+    #page-header h1{
+        margin: 1px 0 1px 2px;
+    }
+    /* Suppression de la bordure du block central */
+    .pagelayout-incourse #region-main, .pagelayout-mydashboard #region-main {
+        background-color: #fafafa;
+        border: none;
+        border-radius: 1px 1px 1px 1px;
+        box-shadow: none;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+    /* Ajustement du block central pour coller au bord de l'écran */
+    #block-region-content > .block {
+        margin-bottom: 2px;
+        margin-top: 2px;
+        padding: 10px 0;
+    }
+    #block-region-content.block-region {
+        padding-left: 5px;
+        margin-left: -25px;
+        margin-right: -20px;
+    }
+    div[role=main] {
+        margin-bottom: 0px;
+    }
+    #block-region-content.block-region div.block_action {
+        padding: 3px 20px 3px 15px;
+    }
+    /* Ajustement des blocks latéraux pour coller au bord de l'écran */
+    #block-region-side-pre.block-region > div.block, #block-region-side-post.block-region > div.block{
+        padding: 10px 5px;
+        margin: 2px -20px;
+    }
+    /* Ajustement pour les pages de cours */
+    #region-main .course-content {
+        margin: 0px -20px;
+        padding: 0 5px;
+    }
+    h1, h2, h3 {
+        line-height: 26px;
+    }
+}
+
+/* Styles pour gérer l'event plier/déplier les cours */
+div.fold_reply.plus .block-hider-hide, div.fold_reply.minus .block-hider-show, div.fold_reply{
+    display: none;
+}
+@media (max-width: 800px) {
+    div.fold_reply.plus .block-hider-hide{
+        display: none;
+    }
+    div.fold_reply.minus .block-hider-show{
+        display: none;
+    }
+    div.fold_reply.minus .block-hider-hide{
+        background-image: url([[pix:t/expanded]]);
+        background-position: 0 4px;
+        background-repeat: no-repeat;
+        padding-left: 21px;
+    }
+    div.fold_reply.plus .block-hider-show{
+        background-image: url([[pix:t/collapsed]]);
+        background-position: 0 4px;
+        background-repeat: no-repeat;
+        padding-left: 21px;
+    }
+    div.summary.folded, ul.teachers.folded{
+        display: none;
+    }
+    div.summary.unfolded, ul.teachers.unfolded{
+        display: block;
+    }
+    div.fold_reply {
+        padding: 3px 15px;
+        display: block;
+    }
+    .block_mycourse_teacher .coursebox .content, .block_mycourse_student .coursebox .content {
+        padding: 0px;
+    }
+}
+
+/* Cache les colonnes avatar et email des grilles de notes */
+.gradingtable tr th.header.c1, .gradingtable tr td.cell.c1,
+.gradingtable tr th.header.c3, .gradingtable tr td.cell.c3 {
+    display: none;
+}
+/* Cache le texte de la colonne de sélection des grilles de notes */
+.gradingtable tr th.header.c0, .gradingtable tr td.cell.c0 {
+font-size: 0px;
+}
+
+/* Correction de la supperposition des images des Rapports des l'évaluateurs sur chrome */
+table.gradereport-grader-table th.cell a img {
+    max-width : none;
+}
+
+/* Correction  de l'affichage des grilles d'évaluation */
+.gradingform_rubric.editor .movedown input {
+    width: 16px;
+    height: 16px;
+}
+
+/* Correction de l'affichage des grilles d'évaluation */
+form.gradingform_rubric_editform table.criteria td.controls input {
+    width: 16px;
+    height: 16px;
+}
+.gradingform_rubric {
+    max-height : 40em;
+    max-width: 100%;
+    overflow: scroll;
+}
+
+/* Pour ne pas afficher le code des catégories sur la page management.php */
+#course-category-listings .listitem > div .idnumber {
+    display: none;
+}
+
+/* largeur max d'un multimédia en HTML5 (principalement pour les smartphones) */
+audio, canvas, video {
+    max-width: 100%;
+}
+
+/* Modification couleur de fond des sections cachées pour éviter les menus "Modifier" inopérants */
+.course-content ul li.section.hidden {
+    opacity: 1;
+    background-color: #eee;
+}
+.course-content ul li.section.hidden .content .sectionname, .course-content ul li.section.hidden .content .summary, .course-content ul li.section.hidden .content .section, .course-content ul li.section.hidden .content a, .course-content ul li.section.hidden .content span {
+    color: #999;
+}
+
