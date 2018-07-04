@@ -1,0 +1,13 @@
+{{!
+    @template theme_boost/nav-drawer
+
+
+    Example context (json): {}
+}}
+<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex {{^navdraweropen}}closed{{/navdraweropen}}" aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}" tabindex="-1">
+    {{#hasblocks}}
+        <section data-region="blocks-column" class="d-print-none">
+            {{{ sidepreblocks }}}
+        </section>
+    {{/hasblocks}}
+</div>

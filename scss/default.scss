@@ -1,0 +1,610 @@
+$netocentre: #24b2f3;
+$touraine: #C60440;
+$agricol: #2d8c17;
+
+$blue: #25b2f3;
+
+$main-color: $netocentre;
+
+@mixin add-etablissment($color) {
+  &.btn-primary {
+    background: $color;
+    border-color: $color;
+    &:hover, &:focus {
+      background: darken($color, 20);
+      border-color: darken($color, 20);
+    }
+  }
+  .progress {
+    .progress-bar {
+      background: $color;
+    }
+  }
+
+  .navbar.navbar-netocentre {
+    background: $color;
+    .dropdown-menu {
+      .dropdown-item {
+        &:hover {
+          background: $color;
+        }
+      }
+    }
+  }
+
+  .block {
+    .card-body {
+      .card-title {
+        &::before {
+          background: $color;
+        }
+      }
+    }
+  }
+  .nav-pills {
+    .nav-link {
+      color: $color;
+      &.active {
+        background: $color;
+        color : #FFF;
+      }
+      &:hover {
+        color: #FFF;
+        background: darken($color, 10);
+      }
+    }
+  }
+  .card {
+    &.courses-view-course-item {
+      &:hover{
+        border-color: $color;
+      }
+    }
+  }
+  .pagination {
+    .page-item {
+      a {
+        color: $color;
+        border: none;
+      }
+      &.active {
+        a {
+          border: none;
+          color: #FFF;
+          background: $color;
+        }
+      }
+    }
+  }
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: url('/commun/fonts/noc/RobotoCondensed-Regular.ttf?1466514113') format('truetype'), url('/commun/fonts/noc/RobotoCondensed-Regular.eot?1466514102') format('embedded-opentype'), url('/commun/fonts/noc/RobotoCondensed-Regular.svg?1466514118') format('svg'), url('/commun/fonts/noc/RobotoCondensed-Regular.woff?1466514115') format('woff')
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  src: url('/commun/fonts/noc/RobotoSlab-Bold.ttf?1466514113') format('truetype'), url('/commun/fonts/noc/RobotoSlab-Bold.eot?1466514102') format('embedded-opentype'), url('/commun/fonts/noc/RobotoSlab-Bold.svg?1466514118') format('svg'), url('/commun/fonts/noc/RobotoSlab-Bold.woff?1466514115') format('woff')
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/commun/material-design-icons/1.9.32/fonts/materialdesignicons-webfont.eot');
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('/commun/material-design-icons/1.9.32/fonts/materialdesignicons-webfont.woff2') format('woff2'), url('/commun/material-design-icons/1.9.32/fonts/materialdesignicons-webfont.woff') format('woff'), url('/commun/material-design-icons/1.9.32/fonts/materialdesignicons-webfont.ttf') format('truetype')
+}
+
+body {
+  font-family: "Roboto Condensed", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  background: #f3f3f3;
+  padding-top: 41px;
+}
+
+.btn {
+  border-radius: 0 !important;
+  &.btn-transparent {
+    background: transparent;
+    color: inherit;
+    border-color: transparent;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #FFFFFF;
+    }
+  }
+  &.btn-primary {
+    background: $main-color;
+    border-color: $main-color;
+    &:hover, &:focus {
+      background: darken($main-color, 20);
+      border-color: darken($main-color, 20);
+    }
+  }
+}
+
+.nav-pills {
+  .nav-link {
+    color: $main-color;
+    &.active {
+      background: $main-color;
+    }
+    &:hover {
+      color: #FFF;
+      background: darken($main-color, 10);
+    }
+  }
+}
+
+.progress {
+  .progress-bar {
+    background: $main-color;
+  }
+}
+
+.navbar.navbar-netocentre {
+  background: $main-color;
+  color: #FFF;
+  padding: 0 16px;
+  a {
+    color: inherit;
+  }
+  .brand {
+    padding: 0 10px;
+    color: #FFF;
+    font-family: inherit;
+    line-height: 40px;
+    font-size: 16px;
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      opacity: .6;
+      margin-top: -3px;
+    }
+  }
+  button[aria-controls] {
+    padding: .5rem .5rem;
+  }
+  .dropdown-menu {
+    padding: 0;
+    .dropdown-divider {
+      margin: 0;
+    }
+    .dropdown-item {
+      &:hover {
+        background: $main-color;
+        color: #FFF;
+      }
+    }
+  }
+  .userpicture {
+    margin: 0;
+  }
+  .popover-region-container {
+    color: #373a3c;
+  }
+}
+
+.block {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 2rem !important;
+  .card-body {
+    padding: 0;
+    position: relative;
+    .card-title {
+      padding: .5rem .7rem;
+      display: block !important;
+      margin: 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      &::before {
+        //color: $main-color;
+        color: #FFF;
+        background: $main-color;
+        display: block;
+        float: left;
+        font-family: FontAwesome;
+        margin-left: -0.5em;
+        margin-right: 0.5em;
+        margin-top: -0.2em;
+        padding: 0.1em;
+        text-align: center;
+        width: 30px;
+        border-radius: 3px;
+      }
+    }
+    .card-text {
+      margin: 0 !important;
+      //padding: 1.25rem;
+      padding: 0;
+    }
+    .block-controls {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.7rem;
+    }
+    p {
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  &.block_navigation {
+    .card-body {
+      .card-title {
+        &::before {
+          font-family: 'Material Icons' !important;
+          content: "\F641";
+        }
+      }
+    }
+
+    .depth_1 {
+      & > .tree_item {
+        &::before {
+          display: none !important;
+        }
+      }
+    }
+  }
+  &.block_settings {
+    #settingsnav {
+      padding: 0 !important;
+    }
+  }
+
+  &.block_settings,
+  &.block_navigation {
+    .card-body {
+      .card-text {
+        .block_tree {
+          padding: .5rem 0 !important;
+          ul {
+            padding-left: 17px;
+          }
+          .tree_item {
+            padding: 0 5px;
+            margin: 0;
+            a {
+              color: inherit;
+            }
+          }
+          [aria-expanded] {
+            &::before {
+              margin-left: -3px;
+              margin-right: 2px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.block_news_items {
+    .card-title {
+      &::before {
+        content: "\f0a1";
+      }
+    }
+  }
+  &.block_calendar_upcoming,
+  &.block_calendar_month {
+    .card-title {
+      &::before {
+        content: "\f073";
+      }
+    }
+  }
+  &.block_course_list {
+    .card-title {
+      &::before {
+        content: "\f108";
+      }
+    }
+  }
+  &.block_completionstatus,
+  &.block_selfcompletion {
+    .card-title {
+      &::before {
+        content: "\f0e4";
+      }
+    }
+  }
+  &.block_blog_menu {
+    .card-title {
+      &::before {
+        content: "\f02d";
+      }
+    }
+  }
+  &.block_quiz_results {
+    .card-title {
+      &::before {
+        content: "\f080";
+      }
+    }
+  }
+  &.block_quiz_navblock {
+    .card-title {
+      &::before {
+        content: "\f126";
+      }
+    }
+  }
+  &.block_glossary_random {
+    .card-title {
+      &::before {
+        content: "\f0eb";
+      }
+    }
+  }
+  &.block_book_toc {
+    .card-title {
+      &::before {
+        content: "\f02d";
+      }
+    }
+  }
+  &.block_participants,
+  &.block_people,
+  &.block_online_users {
+    .card-title {
+      &::before {
+        content: "\f0c0";
+      }
+    }
+  }
+  &.block_comments {
+    .card-title {
+      &::before {
+        content: "\f075";
+      }
+    }
+  }
+  &.block_settings,
+  &.block_admin_bookmarks {
+    .card-title {
+      &::before {
+        content: "\f085";
+      }
+    }
+  }
+  &.block_blog_tags,
+  &.block_tags {
+    .card-title {
+      &::before {
+        content: "\f02c";
+      }
+    }
+  }
+  &.block_private_files {
+    .card-title {
+      &::before {
+        content: "\f114";
+      }
+    }
+  }
+  &.block_block_mentees {
+    .card-title {
+      &::before {
+        content: "\f0c0";
+      }
+    }
+  }
+  &.block_messages {
+    .card-title {
+      &::before {
+        content: "\f0e0";
+      }
+    }
+  }
+  &.block_community {
+    .card-title {
+      &::before {
+        content: "\f0ac";
+      }
+    }
+  }
+  &.block_login {
+    .card-title {
+      &::before {
+        content: "\f007";
+      }
+    }
+  }
+  &.block_search_forums {
+    .card-title {
+      &::before {
+        content: "\f0e6";
+      }
+    }
+  }
+  &.block_adminblock {
+    .card-title {
+      &::before {
+        content: "\f055";
+      }
+    }
+  }
+  &.block_feedback {
+    .card-title {
+      &::before {
+        content: "\f087";
+      }
+    }
+  }
+  &.block_flickr {
+    .card-title {
+      &::before {
+        content: "\f03e";
+      }
+    }
+  }
+  &.block_youtube {
+    .card-title {
+      &::before {
+        content: "\f145";
+      }
+    }
+  }
+  &.block_course_badges {
+    .card-title {
+      &::before {
+        content: "\f091";
+      }
+    }
+  }
+  &.block_twitter_search {
+    .card-title {
+      &::before {
+        content: "\f099";
+      }
+    }
+  }
+  &.block_lrc,
+  &.block_heritage {
+    .card-title {
+      &::before {
+        content: "\f02d";
+      }
+    }
+  }
+}
+
+.card {
+  &.courses-view-course-item {
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    * {
+      transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+    }
+    &:hover {
+      border-color: $main-color;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      .text-muted {
+        color: inherit !important;
+      }
+    }
+    .card-body {
+      padding: .5rem .7rem;
+    }
+  }
+}
+
+.card-deck {
+  .card {
+    flex-basis: calc(33% - 30px);
+  }
+}
+
+#nav-drawer {
+  top: 41px;
+  height: calc(100% - 41px);
+  &[data-region="drawer"] {
+    padding: 1rem 0 0 5px;
+    *[data-region="blocks-column"] {
+      width: 100%;
+      float: none;
+      padding-left: 5px;
+    }
+  }
+}
+
+#page-header {
+  #page-navbar {
+    .page-header-image {
+      display: none;
+    }
+    .breadcrumb {
+      .breadcrumb-item {
+        color: #7d7d7d;
+        a {
+          color: inherit;
+        }
+        &:last-child {
+          color: #313131;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  #page-title {
+    h1 {
+      font-size: 1.7rem;
+    }
+    .page-header-image {
+      display: none;
+    }
+  }
+}
+
+.pagination {
+  .page-item {
+    a {
+      color: $main-color;
+      border: none;
+    }
+    &.active {
+      a {
+        border: none;
+        color: #FFF;
+        background: $main-color;
+      }
+    }
+  }
+}
+
+#page {
+  margin: 0;
+}
+
+footer.netocentre#page-footer {
+  font-family: "Roboto Condensed";
+  margin: 14px -20px 0 -20px;
+  padding: 20px 0;
+  color: #adadad;
+  background: #d0d0d0 !important;
+  color: #888;
+  a {
+    color: inherit;
+    &:hover {
+      color: $main-color;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #region-main-box {
+    padding: 0;
+  }
+}
+
+body.touraine {
+  @include add-etablissment($touraine);
+}
+body.agricol {
+  @include add-etablissment($agricol);
+}
+
+@import "_table";
+
+
+
