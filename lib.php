@@ -21,7 +21,7 @@
  * @copyright  GIP Récia - Pierre LEJEUNE
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined("THEME_ESCO_CACHE_LIFETIME", 86400);
+define("THEME_ESCO_CACHE_LIFETIME", 86400);
 
 function theme_esco_etablissement(){
     global $PAGE, $DB;
@@ -36,6 +36,10 @@ function theme_esco_etablissement(){
             break;
         default :
             return theme_esco_user_etablissement();
+    }
+
+    if($category_id == 0){
+        return theme_esco_user_etablissement();
     }
 
     $category = $DB->get_record('course_categories', array("id" => $category_id), '*', MUST_EXIST);
