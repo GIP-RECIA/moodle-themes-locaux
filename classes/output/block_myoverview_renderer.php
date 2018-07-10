@@ -191,6 +191,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
      */
     private function retrieveCourseProgress($courses)
     {
+        global $USER;
         $coursesprogress = [];
 
         foreach ($courses as $course) {
@@ -202,7 +203,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
                 continue;
             }
 
-            $percentage = progress::get_course_progress_percentage($course);
+            $percentage = \core_completion\progress::progress::get_course_progress_percentage($course);
             if (!is_null($percentage)) {
                 $percentage = floor($percentage);
             }
