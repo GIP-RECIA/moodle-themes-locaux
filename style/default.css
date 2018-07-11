@@ -248,10 +248,9 @@ body {
   margin: 0; }
 
 footer.netocentre#page-footer {
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", sans-serif;
   margin: 14px -20px 0 -20px;
   padding: 20px 0;
-  color: #adadad;
   background: #d0d0d0 !important;
   color: #888; }
   footer.netocentre#page-footer a {
@@ -259,6 +258,10 @@ footer.netocentre#page-footer {
     footer.netocentre#page-footer a:hover {
       color: #24b2f3;
       text-decoration: none; }
+  footer.netocentre#page-footer #partners img {
+    height: 40px; }
+  footer.netocentre#page-footer #partners #touraine, footer.netocentre#page-footer #partners #agricole {
+    display: none; }
 
 @media screen and (max-width: 991px) {
   #region-main-box {
@@ -294,6 +297,10 @@ body.touraine .pagination .page-item.active a {
   border: none;
   color: #FFF;
   background: #C60440; }
+body.touraine footer.netocentre#page-footer #partners #touraine {
+  display: initial; }
+body.touraine footer.netocentre#page-footer #partners #centre-val-de-loire {
+  display: none; }
 
 body.agricol.btn-primary {
   background: #2d8c17;
@@ -326,6 +333,10 @@ body.agricol .pagination .page-item.active a {
   border: none;
   color: #FFF;
   background: #2d8c17; }
+body.agricol footer.netocentre#page-footer #partners #agricole {
+  display: initial; }
+body.agricol footer.netocentre#page-footer #partners #centre-val-de-loire, body.agricol footer.netocentre#page-footer #partners #academie-orleans-tours {
+  display: none; }
 
 @media screen and (max-width: 991px) {
   table.table-responsive-to-cards {

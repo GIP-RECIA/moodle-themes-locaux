@@ -576,10 +576,9 @@ body {
 }
 
 footer.netocentre#page-footer {
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", sans-serif;
   margin: 14px -20px 0 -20px;
   padding: 20px 0;
-  color: #adadad;
   background: #d0d0d0 !important;
   color: #888;
   a {
@@ -587,6 +586,14 @@ footer.netocentre#page-footer {
     &:hover {
       color: $main-color;
       text-decoration: none;
+    }
+  }
+  #partners{
+    img{
+      height : 40px;
+    }
+    #touraine, #agricole{
+      display : none;
     }
   }
 }
@@ -599,9 +606,30 @@ footer.netocentre#page-footer {
 
 body.touraine {
   @include add-etablissment($touraine);
+  footer.netocentre#page-footer{
+    #partners{
+      #touraine{
+        display : initial;
+      }
+      #centre-val-de-loire{
+        display : none;
+      }
+    }
+  }
 }
+
 body.agricol {
   @include add-etablissment($agricol);
+  footer.netocentre#page-footer{
+    #partners{
+      #agricole{
+        display : initial;
+      }
+      #centre-val-de-loire, #academie-orleans-tours{
+        display : none;
+      }
+    }
+  }
 }
 
 @import "_table";

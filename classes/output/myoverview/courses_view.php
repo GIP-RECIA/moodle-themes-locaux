@@ -40,7 +40,6 @@ class courses_view extends \block_myoverview\output\course_view {
      */
     public function __construct($courses, $coursesprogress) {
         parent::__construct();
-        var_dump("coucou");
     }
 
     /**

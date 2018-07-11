@@ -57,3 +57,16 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_DEFAULT;
 $THEME->javascripts_footer = array(
     'moodlebootstrap',
 );
+
+
+$config = get_config('block_myoverview');
+if($config->defaulttab !== "roles"){
+    set_config("defaulttab","roles","block_myoverview");
+}
+if($CFG->allowuserthemes = 1){
+    set_config('allowuserthemes',0);
+}
+
+if($CFG->allowcategorythemes = 1){
+    set_config('allowcategorythemes',0);
+}
