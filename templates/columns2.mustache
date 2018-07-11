@@ -122,5 +122,11 @@ require(['jquery'], function($){
         }
         esco_window_width_previous = $(window).width();
     })
+
+    $('*[data-toggle="collapse"]').on('click', function(){
+        var area = $(this).attr("href");
+        console.log(area);
+        $(area).toggleClass("collapse");
+    });
 });
 {{/js}}

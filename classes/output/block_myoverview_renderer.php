@@ -48,6 +48,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
      * @param $uid
      * @param $courses
      * @return mixed
+     * @throws \dml_exception A DML specific exception is thrown for any errors.
      */
     private function addRoles($uid, $courses)
     {
@@ -86,6 +87,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
      * Retrieve distinct roles for each $courses the role
      * @param $courses
      * @return array
+     * @throws \dml_exception A DML specific exception is thrown for any errors.
      */
     private function getDistinctRoles($courses)
     {
@@ -146,20 +148,29 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
             'context' => $context
         ]);
         $exportedcourse = $exporter->export($this);
+        $course_object = new \course_in_list($course);
         $exportedcourse->summary = content_to_text($exportedcourse->summary, $exportedcourse->summaryformat);
 
         $course = new \course_in_list($course);
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
             if ($isimage) {
-                $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                    '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+                $url = file_encode_url("$CFG->wwwroot/pluginfile.php",'/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
                     $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
                 $exportedcourse->courseimage = $url;
                 $exportedcourse->classes = 'courseimage';
                 break;
             }
         }
+
+        $exportedcourse->enseignants = array();
+        foreach($course_object->get_course_contacts() as $uid => $course_contact){
+            if($course_contact["role"]->shortname !== "editingteacher"){
+                continue;
+            }
+            $exportedcourse->enseignants[] = $course_contact["user"];
+        }
+        $exportedcourse->hasenseignants = (count($exportedcourse->enseignants) > 0);
 
         $exportedcourse->color = $this->coursecolor($course->id);
 

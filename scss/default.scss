@@ -232,11 +232,6 @@ body {
       top: 0.5rem;
       right: 0.7rem;
     }
-    p {
-      &:last-child {
-        margin: 0;
-      }
-    }
   }
   &.block_navigation {
     .card-body {
@@ -504,6 +499,12 @@ body {
     }
     .card-body {
       padding: .5rem .7rem;
+
+      p, ul{
+        &:last-child {
+        }
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -597,7 +598,6 @@ footer.netocentre#page-footer {
     }
   }
 }
-
 @media screen and (max-width: 991px) {
   #region-main-box {
     padding: 0;

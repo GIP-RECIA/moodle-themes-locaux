@@ -35,11 +35,24 @@
         {{> block_myoverview/progress-chart}}
         <div class="media">
             <div class="media-body">
-                <h4 class="h5"><a href="{{viewurl}}" class="{{^visible}}dimmed{{/visible}}">{{{fullnamedisplay}}}</a></h4>
+                <h4 class="h5"><a href="{{viewurl}}" class="{{^visible}}dimmed{{/visible}}">{{{fullnamedisplay}}}</a>
+                </h4>
             </div>
         </div>
         <p class="text-muted">
             {{#shortentext}} 140, {{summary}}{{/shortentext}}
         </p>
+        {{#hasenseignants}}
+            <a class="text-muted" data-toggle="collapse" href="#course-enseignant-{{id}}" expanded="false" aria-controle="course-enseignant-{{id}}">
+                <i class="fa fa-users"></i> Enseignants
+            </a>
+            <div class="collapse" id="course-enseignant-{{id}}">
+                <ul class="text-muted">
+                    {{#enseignants}}
+                        <li>{{ firstname }} {{ lastname }}</li>
+                    {{/enseignants}}
+                </ul>
+            </div>
+        {{/hasenseignants}}
     </div>
 </div>

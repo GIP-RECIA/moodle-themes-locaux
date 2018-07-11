@@ -28,4 +28,4 @@ $string['choosereadme'] = 'Theme ESCO est un theme enfant de Boost.';
 $string['pluginname'] = 'ESCO';
 $string['roles_tab'] = 'Par Rôles';
 $string['timeline_tab'] = 'Par Chronologie';
-$string['courses_tab'] = 'Par Etat';
+$string['courses_tab'] = 'Par Status';

@@ -114,8 +114,6 @@ body {
       position: absolute;
       top: 0.5rem;
       right: 0.7rem; }
-    .block .card-body p:last-child {
-      margin: 0; }
   .block.block_navigation .card-body .card-title::before {
     font-family: 'Material Icons' !important;
     content: "\F641"; }
@@ -208,6 +206,8 @@ body {
       color: inherit !important; }
   .card.courses-view-course-item .card-body {
     padding: .5rem .7rem; }
+    .card.courses-view-course-item .card-body p, .card.courses-view-course-item .card-body ul {
+      margin-bottom: 0; }
 
 .card-deck .card {
   flex-basis: calc(33% - 30px); }
