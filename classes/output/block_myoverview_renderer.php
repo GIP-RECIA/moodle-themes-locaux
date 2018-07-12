@@ -20,7 +20,6 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
 
     public function render_main(\block_myoverview\output\main $main)
     {
-
         global $USER;
         $view_data = $main->export_for_template($this);
 
@@ -31,6 +30,8 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         } else {
             $view_data["viewingroles"] = false;
         }
+
+        $this->updateImages($view_data);
 
         $courses = enrol_get_my_courses('*'); //'timecreated' necessaire pour pouvoir trier les cours par date
         $courses = $this->addRoles($USER->id, $courses);
@@ -43,6 +44,23 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         return $this->render_from_template('block_myoverview/main', $view_data);
     }
 
+    private function updateImages(array &$view_data){
+        global $OUTPUT;
+        $tabs = array("past","futur","inprogress");
+//        var_dump($view_data);
+        foreach($tabs as $tab){
+            if(!isset($view_data["coursesview"][$tab])||!isset($view_data["coursesview"][$tab]['pages']))continue;
+            foreach($view_data["coursesview"][$tab]['pages'] as $page => $d){
+                if(!isset($view_data["coursesview"][$tab]['pages'][$page]['courses'])) continue;
+                foreach($view_data["coursesview"][$tab]['pages'][$page]['courses'] as $key => $course){
+                    if(stripos($course->courseimage, "data:") === 0){
+                        $course->courseimage = $OUTPUT->image_url('Toque','theme');
+                        $view_data["coursesview"][$tab]['pages'][$page]['courses'][$key] = $course;
+                    }
+                }
+            }
+        }
+    }
     /**
      * Retrieve for each $courses the role in the DB
      * @param $uid
