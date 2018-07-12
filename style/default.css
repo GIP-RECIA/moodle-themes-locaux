@@ -65,6 +65,8 @@ body {
       margin-right: 5px;
       opacity: .6;
       margin-top: -3px; }
+    .navbar.navbar-netocentre .brand:hover img {
+      opacity: 1; }
   .navbar.navbar-netocentre button[aria-controls] {
     padding: .5rem .5rem; }
   .navbar.navbar-netocentre .dropdown-menu {
@@ -204,6 +206,11 @@ body {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
     .card.courses-view-course-item:hover .text-muted {
       color: inherit !important; }
+  .card.courses-view-course-item .card-img-top {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: #f3f3f3; }
   .card.courses-view-course-item .card-body {
     padding: .5rem .7rem; }
     .card.courses-view-course-item .card-body p, .card.courses-view-course-item .card-body ul {
@@ -249,8 +256,7 @@ body {
 
 footer.netocentre#page-footer {
   font-family: "Roboto Condensed", sans-serif;
-  margin: 14px -20px 0 -20px;
-  padding: 20px 0;
+  padding: 20px;
   background: #d0d0d0 !important;
   color: #888; }
   footer.netocentre#page-footer a {
@@ -258,6 +264,10 @@ footer.netocentre#page-footer {
     footer.netocentre#page-footer a:hover {
       color: #24b2f3;
       text-decoration: none; }
+  footer.netocentre#page-footer #netocentre img, footer.netocentre#page-footer #touraine-eschool img {
+    height: 40px; }
+  footer.netocentre#page-footer #touraine-eschool {
+    display: none; }
   footer.netocentre#page-footer #partners img {
     height: 40px; }
   footer.netocentre#page-footer #partners #touraine, footer.netocentre#page-footer #partners #agricole {
@@ -300,6 +310,10 @@ body.touraine .pagination .page-item.active a {
 body.touraine footer.netocentre#page-footer #partners #touraine {
   display: initial; }
 body.touraine footer.netocentre#page-footer #partners #centre-val-de-loire {
+  display: none; }
+body.touraine footer.netocentre#page-footer #touraine-eschool {
+  display: block; }
+body.touraine footer.netocentre#page-footer #netocentre {
   display: none; }
 
 body.agricol.btn-primary {

@@ -165,12 +165,13 @@ function theme_esco_etablissement_color($etablissement){
 }
 
 function theme_esco_etablissement_logo($etablissement){
+    global $OUTPUT;
     $color = theme_esco_etablissement_color($etablissement);
     switch($color){
         default :
-            return "/images/partners/netocentre-simple.svg";
+            return $OUTPUT->image_url('NOCMoodle_blanc', "theme");
         case "touraine" :
-            return "/images/partners/touraine-simple.svg";
+            return $OUTPUT->image_url('TESMoodle_blanc', "theme");
     }
 }
 

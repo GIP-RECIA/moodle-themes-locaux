@@ -167,6 +167,11 @@ body {
       opacity: .6;
       margin-top: -3px;
     }
+    &:hover{
+      img{
+        opacity : 1;
+      }
+    }
   }
   button[aria-controls] {
     padding: .5rem .5rem;
@@ -497,9 +502,14 @@ body {
         color: inherit !important;
       }
     }
+    .card-img-top{
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-color : #f3f3f3;
+    }
     .card-body {
       padding: .5rem .7rem;
-
       p, ul{
         &:last-child {
         }
@@ -578,8 +588,7 @@ body {
 
 footer.netocentre#page-footer {
   font-family: "Roboto Condensed", sans-serif;
-  margin: 14px -20px 0 -20px;
-  padding: 20px 0;
+  padding: 20px ;
   background: #d0d0d0 !important;
   color: #888;
   a {
@@ -588,6 +597,14 @@ footer.netocentre#page-footer {
       color: $main-color;
       text-decoration: none;
     }
+  }
+  #netocentre, #touraine-eschool{
+    img{
+      height : 40px;
+    }
+  }
+  #touraine-eschool{
+    display : none;
   }
   #partners{
     img{
@@ -614,6 +631,12 @@ body.touraine {
       #centre-val-de-loire{
         display : none;
       }
+    }
+    #touraine-eschool{
+      display : block;
+    }
+    #netocentre{
+      display : none;
     }
   }
 }

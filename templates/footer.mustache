@@ -18,50 +18,50 @@
     Page footer.
 }}
 <footer id="page-footer" class="py-3 netocentre">
-    <div class="container container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div id="partners">
-                    <a href="http://www.regioncentre.fr/" id="centre-val-de-loire" title="Centre Val de Loire">
-                        <img alt="Centre Val de Loire" src="/images/partners/centreValLoire.svg">
-                    </a>
-                    <a href="http://www.cg37.fr/" id="touraine" title="Tourraine">
-                        <img alt="Tourraine" src="/images/partners/touraine.svg">
-                    </a>
-                    <a href="http://www.ac-orleans-tours.fr/" id="academie-orleans-tours" title="Academie Orleans Tours">
-                        <img alt="Academie Orleans Tours" id="acadOrleTour" src="/images/partners/academieOrleansTours.svg">
-                    </a>
-                    <a href="http://draaf.centre.agriculture.gouv.fr/" id="agricole" title="Enseignement Agricole">
-                        <img alt="Enseignement Agricole" id="agricol" src="/images/partners/enseignementAgricole.svg">
-                    </a>
-                    <a href="http://www.centre.pref.gouv.fr/" title="Republique Francaise">
-                        <img alt="Republique Francaise" src="/images/partners/republiqueFrancaise.svg">
-                    </a>
-                    <a href="http://europa.eu/index_fr.htm" title="Europe">
-                        <img alt="Europe" src="/images/partners/europe.svg">
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div id="course-footer">{{{ output.course_footer }}}</div>
-
-                {{# output.page_doc_link }}
-                    <p class="helplink">{{{ output.page_doc_link }}}</p>
-                {{/ output.page_doc_link }}
-
-                {{{ output.login_info }}}
-                <div class="tool_usertours-resettourcontainer"></div>
-                {{{ output.home_link }}}
-                <nav class="nav navbar-nav d-md-none">
-                    {{# output.custom_menu_flat }}
-                        <ul class="list-unstyled pt-3">
-                            {{> theme_boost/custom_menu_footer }}
-                        </ul>
-                    {{/ output.custom_menu_flat }}
-                </nav>
-                {{{ output.standard_footer_html }}}
-                {{{ output.standard_end_of_body_html }}}
-            </div>
-        </div>
+    <div id="netocentre">
+        <img alt="Centre Val de Loire" src="/images/partners/netoCentreGIP.svg">
     </div>
+    <div id="touraine-eschool">
+        <img alt="Centre Val de Loire" src="/images/partners/touraineGIP.svg">
+    </div>
+    <div id="partners">
+        <a href="http://www.regioncentre.fr/" id="centre-val-de-loire" title="Centre Val de Loire">
+            <img alt="Centre Val de Loire" src="/images/partners/centreValLoire.svg">
+        </a>
+        <a href="http://www.cg37.fr/" id="touraine" title="Tourraine">
+            <img alt="Tourraine" src="/images/partners/touraine.svg">
+        </a>
+        <a href="http://www.ac-orleans-tours.fr/" id="academie-orleans-tours" title="Academie Orleans Tours">
+            <img alt="Academie Orleans Tours" id="acadOrleTour" src="/images/partners/academieOrleansTours.svg">
+        </a>
+        <a href="http://draaf.centre.agriculture.gouv.fr/" id="agricole" title="Enseignement Agricole">
+            <img alt="Enseignement Agricole" id="agricol" src="/images/partners/enseignementAgricole.svg">
+        </a>
+        <a href="http://www.centre.pref.gouv.fr/" title="Republique Francaise">
+            <img alt="Republique Francaise" src="/images/partners/republiqueFrancaise.svg">
+        </a>
+        <a href="http://europa.eu/index_fr.htm" title="Europe">
+            <img alt="Europe" src="/images/partners/europe.svg">
+        </a>
+    </div>
+    {{# output.page_doc_link }}
+        <div class="text-right">
+            <div id="course-footer">{{{ output.course_footer }}}</div>
+
+            <p class="helplink">{{{ output.page_doc_link }}}</p>
+
+            {{{ output.login_info }}}
+            <div class="tool_usertours-resettourcontainer"></div>
+            {{{ output.home_link }}}
+            <nav class="nav navbar-nav d-md-none">
+                {{# output.custom_menu_flat }}
+                    <ul class="list-unstyled pt-3">
+                        {{> theme_boost/custom_menu_footer }}
+                    </ul>
+                {{/ output.custom_menu_flat }}
+            </nav>
+            {{{ output.standard_footer_html }}}
+            {{{ output.standard_end_of_body_html }}}
+        </div>
+    {{/ output.page_doc_link }}
 </footer>

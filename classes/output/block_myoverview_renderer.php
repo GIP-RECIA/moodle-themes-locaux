@@ -141,7 +141,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
      */
     private function convertToFrontView($course)
     {
-        global $CFG;
+        global $CFG, $OUTPUT;
         $courseid = $course->id;
         $context = \context_course::instance($courseid);
         $exporter = new course_summary_exporter($course, [
@@ -175,11 +175,8 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         $exportedcourse->color = $this->coursecolor($course->id);
 
         if (!isset($exportedcourse->courseimage)) {
-            $pattern = new \core_geopattern();
-            $pattern->setColor($exportedcourse->color);
-            $pattern->patternbyid($courseid);
             $exportedcourse->classes = 'coursepattern';
-            $exportedcourse->courseimage = $pattern->datauri();
+            $exportedcourse->courseimage = $OUTPUT->image_url('Toque','theme');
         }
 
         // Include course visibility.
