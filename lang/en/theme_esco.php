@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['choosereadme'] = 'Theme ESCO is a child theme of Boost.';
 $string['pluginname'] = 'ESCO';
-$string['roles_tab'] = 'Per Roles';
+$string['roles_tab'] = 'Per Role';
 $string['timeline_tab'] = 'Timeline';
 $string['courses_tab'] = 'Status';
