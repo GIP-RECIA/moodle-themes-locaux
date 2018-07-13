@@ -69,6 +69,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $header->courseheader = $this->course_header();
         return $this->render_from_template('theme_esco  /header', $header);
     }
+    
+    /**
+     * Restitute the original edit_button function for rendering edition button
+     * as boost theme remove it !
+     */
+    public function edit_button(moodle_url $url) {
+        return \core_renderer::edit_button($url);
+    }
 
     /**
      * Internal implementation of user image rendering.
