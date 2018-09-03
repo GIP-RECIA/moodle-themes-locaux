@@ -34,7 +34,9 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         $view_data["viewingcourses"] = false;
         $view_data["viewingroles"] = false;
 
-        switch($main->tab){
+        $view_data["sort"] = "default";
+
+        switch ($main->tab) {
             case BLOCK_MYOVERVIEW_TIMELINE_VIEW:
                 $view_data["viewingtimeline"] = true;
                 break;
@@ -43,7 +45,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
                 break;
             case BLOCK_MYOVERVIEW_ROLES_VIEW:
                 $view_data["viewingroles"] = true;
-                set_user_preference('block_myoverview_last_tab',BLOCK_MYOVERVIEW_ROLES_VIEW);
+                set_user_preference('block_myoverview_last_tab', BLOCK_MYOVERVIEW_ROLES_VIEW);
                 break;
         }
 
@@ -56,14 +58,16 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         $this->retrieveCourseProgress($courses);
 
         $this->updateViewData($view_data, $courses);
+        $this->getSortViewData($view_data);
 
         return $this->render_from_template('block_myoverview/main', $view_data);
     }
 
-    private function export_for_template(){
+    private function export_for_template()
+    {
         global $USER;
 
-        $courses = enrol_get_my_courses('*',$this->getSort());
+        $courses = enrol_get_my_courses('*', $this->getSort());
         $coursesprogress = [];
 
         foreach ($courses as $course) {
@@ -109,45 +113,62 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         ];
     }
 
-    private function getSort(){
+    private function getSort()
+    {
         $sort = null;
         $sort_field = optional_param('sort_field', null, PARAM_ALPHA);
         if (is_null($sort_field)) {
             $sort_field = get_user_preferences('block_myoverview_sort_field');
-        }else{
-            set_user_preference('block_myoverview_sort_field',$sort_field);
+        } else {
+            set_user_preference('block_myoverview_sort_field', $sort_field);
         }
-        if(is_null($sort_field)) return null;
+        if (is_null($sort_field)) return null;
 
         $sort_order = optional_param('sort_order', null, PARAM_ALPHA);
         if (is_null($sort_order)) {
             $sort_order = get_user_preferences('block_myoverview_sort_order');
-        }else{
-            set_user_preference('block_myoverview_sort_order',$sort_order);
+        } else {
+            set_user_preference('block_myoverview_sort_order', $sort_order);
+        }
+        if (is_null($sort_order)) {
+            $sort_order = "ASC";
         }
 
-        $sort =  "$sort_field $sort_order";
+        $sort = "$sort_field $sort_order";
 
         return $sort;
     }
 
-    private function updateImages(array &$view_data){
+    private function getSortViewData(&$viewdata)
+    {
+        $sort = $this->getSort();
+        if (is_null($sort)) {
+            $viewdata["sort_label"] = get_string("resortcourses");
+            return;
+        }
+        list($field, $order) = explode(" ", $sort);
+        $viewdata["sort_label"] = get_string(($order == "ASC" ? 'sortbyx' : 'sortbyxreverse'), 'moodle', get_string($field . "course"));
+    }
+
+    private function updateImages(array &$view_data)
+    {
         global $OUTPUT;
-        $tabs = array("past","futur","inprogress");
+        $tabs = array("past", "futur", "inprogress");
 //        var_dump($view_data);
-        foreach($tabs as $tab){
-            if(!isset($view_data["coursesview"][$tab])||!isset($view_data["coursesview"][$tab]['pages']))continue;
-            foreach($view_data["coursesview"][$tab]['pages'] as $page => $d){
-                if(!isset($view_data["coursesview"][$tab]['pages'][$page]['courses'])) continue;
-                foreach($view_data["coursesview"][$tab]['pages'][$page]['courses'] as $key => $course){
-                    if(stripos($course->courseimage, "data:") === 0){
-                        $course->courseimage = $OUTPUT->image_url('Toque','theme');
+        foreach ($tabs as $tab) {
+            if (!isset($view_data["coursesview"][$tab]) || !isset($view_data["coursesview"][$tab]['pages'])) continue;
+            foreach ($view_data["coursesview"][$tab]['pages'] as $page => $d) {
+                if (!isset($view_data["coursesview"][$tab]['pages'][$page]['courses'])) continue;
+                foreach ($view_data["coursesview"][$tab]['pages'][$page]['courses'] as $key => $course) {
+                    if (stripos($course->courseimage, "data:") === 0) {
+                        $course->courseimage = $OUTPUT->image_url('Toque', 'theme');
                         $view_data["coursesview"][$tab]['pages'][$page]['courses'][$key] = $course;
                     }
                 }
             }
         }
     }
+
     /**
      * Retrieve for each $courses the role in the DB
      * @param $uid
@@ -170,11 +191,11 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
 	    		JOIN {context} c ON c.id = ra.contextid
 	    		WHERE ra.userid = ? ";
 
-            if(!empty(self::HIDDEN_ROLES)){
+            if (!empty(self::HIDDEN_ROLES)) {
                 $sql .= "AND r.shortname NOT IN (";
                 $first = true;
-                foreach(self::HIDDEN_ROLES as $role){
-                    $sql .= ($first?"":",") . "'$role'";
+                foreach (self::HIDDEN_ROLES as $role) {
+                    $sql .= ($first ? "" : ",") . "'$role'";
                     $first = false;
                 }
                 $sql .= ") ";
@@ -272,7 +293,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
             if ($isimage) {
-                $url = file_encode_url("$CFG->wwwroot/pluginfile.php",'/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+                $url = file_encode_url("$CFG->wwwroot/pluginfile.php", '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
                     $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
                 $exportedcourse->courseimage = $url;
                 $exportedcourse->classes = 'courseimage';
@@ -281,8 +302,8 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         }
 
         $exportedcourse->enseignants = array();
-        foreach($course_object->get_course_contacts() as $uid => $course_contact){
-            if($course_contact["role"]->shortname !== "editingteacher"){
+        foreach ($course_object->get_course_contacts() as $uid => $course_contact) {
+            if ($course_contact["role"]->shortname !== "editingteacher") {
                 continue;
             }
             $exportedcourse->enseignants[] = $course_contact["user"];
@@ -293,7 +314,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
 
         if (!isset($exportedcourse->courseimage)) {
             $exportedcourse->classes = 'coursepattern';
-            $exportedcourse->courseimage = $OUTPUT->image_url('Toque','theme');
+            $exportedcourse->courseimage = $OUTPUT->image_url('Toque', 'theme');
         }
 
         // Include course visibility.
