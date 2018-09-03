@@ -25,10 +25,11 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         global $USER;
         $view_data = $main->export_for_template($this);
 
-        if ($main->tab === "roles") {
+        if ($main->tab === BLOCK_MYOVERVIEW_ROLES_VIEW) {
             $view_data["viewingtimeline"] = false;
             $view_data["viewingcourses"] = false;
             $view_data["viewingroles"] = true;
+            set_user_preference('block_myoverview_last_tab',BLOCK_MYOVERVIEW_ROLES_VIEW);
         } else {
             $view_data["viewingroles"] = false;
         }

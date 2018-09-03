@@ -23,6 +23,8 @@
  */
 define("THEME_ESCO_CACHE_LIFETIME", 86400);
 
+define('BLOCK_MYOVERVIEW_ROLES_VIEW', 'roles');
+
 function theme_esco_etablissement(){
     global $PAGE, $DB;
 
@@ -197,4 +199,10 @@ function theme_esco_ldap_config(){
 
     $config["branch"] = str_ireplace("people","structures",$config["branch"]);
     return $config;
+}
+
+function theme_esco_user_preferences(){
+    $preferences = block_myoverview_user_preferences();
+    $preferences['block_myoverview_last_tab']['choices'][] = BLOCK_MYOVERVIEW_ROLES_VIEW;
+    return $preferences;
 }
