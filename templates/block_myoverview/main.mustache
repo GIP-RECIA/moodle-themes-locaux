@@ -25,7 +25,24 @@
 
 <div id="block-myoverview-{{uniqid}}" class="block-myoverview" data-region="myoverview">
     <div class="pull-right d-none d-sm-inline">
-        <input type="text" class="form-control" placeholder="{{#str}}search{{/str}}" data-toggle="esco-filter"/>
+        <input type="text" class="form-control" placeholder="{{#str}}search{{/str}}" data-toggle="esco-filter" />
+    </div>
+    <div class="pull-right d-none d-sm-inline">
+        <div class="dropdown">
+            <a href="#" class="btn dropdown-toggle" href="#" title="" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{#str}}resortcourses{{/str}}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right menu">
+                <a class="dropdown-item menu-action" href="?sort_field=fullname&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}fullnamecourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=fullname&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}fullnamecourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=shortname&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}shortnamecourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=shortname&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}shortnamecourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=id&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}idnumbercourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=id&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}idnumbercourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=timecreated&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}timecreatedcourse{{/str}}{{/str}}</a>
+                <a class="dropdown-item menu-action" href="?sort_field=timecreated&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}timecreatedcourse{{/str}}{{/str}}</a>
+            </div>
+        </div>
     </div>
     <ul id="block-myoverview-view-choices-{{uniqid}}" class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -61,21 +78,21 @@
     </div>
 </div>
 {{#js}}
-require(['jquery', 'block_myoverview/tab_preferences'], function($, TabPreferences) {
+    require(['jquery', 'block_myoverview/tab_preferences'], function($, TabPreferences) {
     var root = $('#block-myoverview-view-choices-{{uniqid}}');
     TabPreferences.registerEventListeners(root);
-});
-require(['jquery'], function($) {
-    $('input[data-toggle="esco-filter"]').keyup(function(){
-        var value = $(this).val().trim().toLowerCase();
-        $(".tab-content .courses-view-course-item").each(function(){
-            if(value === "" || $(this).find(".h5").text().toLowerCase().indexOf(value) !== -1){
-                $(this).show();
-            }else{
-                $(this).hide();
-            }
-        });
     });
-});
+    require(['jquery'], function($) {
+    $('input[data-toggle="esco-filter"]').keyup(function(){
+    var value = $(this).val().trim().toLowerCase();
+    $(".tab-content .courses-view-course-item").each(function(){
+    if(value === "" || $(this).find(".h5").text().toLowerCase().indexOf(value) !== -1){
+    $(this).show();
+    }else{
+    $(this).hide();
+    }
+    });
+    });
+    });
 
 {{/js}}

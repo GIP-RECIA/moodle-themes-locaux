@@ -201,8 +201,25 @@ function theme_esco_ldap_config(){
     return $config;
 }
 
-function theme_esco_user_preferences(){
-    $preferences = block_myoverview_user_preferences();
-    $preferences['block_myoverview_last_tab']['choices'][] = BLOCK_MYOVERVIEW_ROLES_VIEW;
+/**
+ * Returns the name of the user preferences as well as the details this plugin uses.
+ *
+ * @return array
+ */
+function theme_esco_user_preferences() {
+    $preferences = array();
+    $preferences['block_myoverview_sort_field'] = array(
+        'type' => PARAM_ALPHA,
+        'null' => NULL_ALLOWED,
+        'choices' => array("fullname","shortname","id","timecreated"),
+    );
+
+    $preferences['block_myoverview_sort_order'] = array(
+        'type' => PARAM_ALPHA,
+        'null' => NULL_NOT_ALLOWED,
+        'default' => "asc",
+        'choices' => array("asc","desc"),
+    );
+
     return $preferences;
 }

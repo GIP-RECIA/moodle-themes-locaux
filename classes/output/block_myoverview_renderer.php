@@ -8,7 +8,12 @@
 
 namespace theme_esco\output;
 
+use block_myoverview\output\courses_view;
 use core_course\external\course_summary_exporter;
+use core_completion\progress;
+
+require_once($CFG->dirroot . '/blocks/myoverview/lib.php');
+require_once($CFG->libdir . '/completionlib.php');
 
 class block_myoverview_renderer extends \block_myoverview\output\renderer
 {
@@ -23,20 +28,28 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
     public function render_main(\block_myoverview\output\main $main)
     {
         global $USER;
-        $view_data = $main->export_for_template($this);
+        $view_data = $this->export_for_template();
 
-        if ($main->tab === BLOCK_MYOVERVIEW_ROLES_VIEW) {
-            $view_data["viewingtimeline"] = false;
-            $view_data["viewingcourses"] = false;
-            $view_data["viewingroles"] = true;
-            set_user_preference('block_myoverview_last_tab',BLOCK_MYOVERVIEW_ROLES_VIEW);
-        } else {
-            $view_data["viewingroles"] = false;
+        $view_data["viewingtimeline"] = false;
+        $view_data["viewingcourses"] = false;
+        $view_data["viewingroles"] = false;
+
+        switch($main->tab){
+            case BLOCK_MYOVERVIEW_TIMELINE_VIEW:
+                $view_data["viewingtimeline"] = true;
+                break;
+            case BLOCK_MYOVERVIEW_COURSES_VIEW:
+                $view_data["viewingcourses"] = true;
+                break;
+            case BLOCK_MYOVERVIEW_ROLES_VIEW:
+                $view_data["viewingroles"] = true;
+                set_user_preference('block_myoverview_last_tab',BLOCK_MYOVERVIEW_ROLES_VIEW);
+                break;
         }
 
         $this->updateImages($view_data);
 
-        $courses = enrol_get_my_courses('*'); //'timecreated' necessaire pour pouvoir trier les cours par date
+        $courses = enrol_get_my_courses('*', $this->getSort()); //'timecreated' necessaire pour pouvoir trier les cours par date
         $courses = $this->addRoles($USER->id, $courses);
 
         $view_data["rolesview"]["roles"] = $this->getDistinctRoles($courses);
@@ -45,6 +58,77 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         $this->updateViewData($view_data, $courses);
 
         return $this->render_from_template('block_myoverview/main', $view_data);
+    }
+
+    private function export_for_template(){
+        global $USER;
+
+        $courses = enrol_get_my_courses('*',$this->getSort());
+        $coursesprogress = [];
+
+        foreach ($courses as $course) {
+
+            $completion = new \completion_info($course);
+
+            // First, let's make sure completion is enabled.
+            if (!$completion->is_enabled()) {
+                continue;
+            }
+
+            $percentage = progress::get_course_progress_percentage($course);
+            if (!is_null($percentage)) {
+                $percentage = floor($percentage);
+            }
+
+            $coursesprogress[$course->id]['completed'] = $completion->is_course_complete($USER->id);
+            $coursesprogress[$course->id]['progress'] = $percentage;
+        }
+
+        $coursesview = new courses_view($courses, $coursesprogress);
+        $nocoursesurl = $this->image_url('courses', 'block_myoverview')->out();
+        $noeventsurl = $this->image_url('activities', 'block_myoverview')->out();
+
+        // Now, set the tab we are going to be viewing.
+        $viewingtimeline = false;
+        $viewingcourses = false;
+        if ($this->tab == BLOCK_MYOVERVIEW_TIMELINE_VIEW) {
+            $viewingtimeline = true;
+        } else {
+            $viewingcourses = true;
+        }
+
+        return [
+            'midnight' => usergetmidnight(time()),
+            'coursesview' => $coursesview->export_for_template($this),
+            'urls' => [
+                'nocourses' => $nocoursesurl,
+                'noevents' => $noeventsurl
+            ],
+            'viewingtimeline' => $viewingtimeline,
+            'viewingcourses' => $viewingcourses
+        ];
+    }
+
+    private function getSort(){
+        $sort = null;
+        $sort_field = optional_param('sort_field', null, PARAM_ALPHA);
+        if (is_null($sort_field)) {
+            $sort_field = get_user_preferences('block_myoverview_sort_field');
+        }else{
+            set_user_preference('block_myoverview_sort_field',$sort_field);
+        }
+        if(is_null($sort_field)) return null;
+
+        $sort_order = optional_param('sort_order', null, PARAM_ALPHA);
+        if (is_null($sort_order)) {
+            $sort_order = get_user_preferences('block_myoverview_sort_order');
+        }else{
+            set_user_preference('block_myoverview_sort_order',$sort_order);
+        }
+
+        $sort =  "$sort_field $sort_order";
+
+        return $sort;
     }
 
     private function updateImages(array &$view_data){
