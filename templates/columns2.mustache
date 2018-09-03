@@ -121,12 +121,11 @@ require(['jquery'], function($){
             $('button[data-action="toggle-drawer"]').click();
         }
         esco_window_width_previous = $(window).width();
-    })
+    });
 
     $('*[data-toggle="collapse"]').on('click', function(){
         var area = $(this).attr("href");
-        console.log(area);
-        $(area).toggleClass("collapse");
+        $(this).closest('div').find(area).toggleClass("collapse");
     });
 });
 {{/js}}
