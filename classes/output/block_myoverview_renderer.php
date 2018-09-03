@@ -13,6 +13,8 @@ use core_course\external\course_summary_exporter;
 class block_myoverview_renderer extends \block_myoverview\output\renderer
 {
 
+    const HIDDEN_ROLES = array("extendedteacher");
+
     /**
      * @var array
      */
@@ -73,16 +75,28 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         global $DB;
 
         if (!empty ($courses)) {
+            $params = array(
+                $uid
+            );
+
             $sql = "SELECT c.instanceid AS courseid, GROUP_CONCAT(r.shortname SEPARATOR ',') AS roles
 	    		FROM {role} r
 	    		JOIN {role_assignments} ra ON ra.roleid = r.id
 	    		JOIN {context} c ON c.id = ra.contextid
-	    		WHERE ra.userid = ?
-	    		AND c.instanceid in (";
+	    		WHERE ra.userid = ? ";
 
-            $params = array(
-                $uid
-            );
+            if(!empty(self::HIDDEN_ROLES)){
+                $sql .= "AND r.shortname NOT IN (";
+                $first = true;
+                foreach(self::HIDDEN_ROLES as $role){
+                    $sql .= ($first?"":",") . "'$role'";
+                    $first = false;
+                }
+                $sql .= ") ";
+            }
+
+            $sql .= "AND c.instanceid in (";
+
             foreach ($courses as $course) {
                 $sql .= ",?";
                 $params [] = $course->id;
