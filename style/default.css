@@ -391,5 +391,19 @@ body.agricol footer.netocentre#page-footer #partners #centre-val-de-loire, body.
         background: transparent; }
       table.table-responsive-to-cards td:empty {
         display: none; } }
+@media all and (max-width: 991px) {
+  .block-myoverview .actions {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 40px; }
+    .block-myoverview .actions > .pull-right {
+      display: inline-block; }
+    .block-myoverview .actions #search_form {
+      flex-grow: 1; }
+  .block-myoverview .nav {
+    width: 100%; }
+  .block-myoverview .my-5 {
+    margin: 10px auto !important; } }
 
 /*# sourceMappingURL=default.css.map */

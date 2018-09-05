@@ -661,5 +661,25 @@ body.agricol {
 
 @import "_table";
 
-
-
+@media all and (max-width: 991px) {
+  .block-myoverview {
+    .actions{
+      display : flex;
+      flex-wrap : wrap;
+      width : 100%;
+      min-height : 40px;
+      & > .pull-right{
+        display : inline-block;
+      }
+      #search_form{
+        flex-grow : 1;
+      }
+    }
+    .nav{
+      width : 100%;
+    }
+    .my-5{
+      margin : 10px auto !important;
+    }
+  }
+}

@@ -24,37 +24,39 @@
 }}
 
 <div id="block-myoverview-{{uniqid}}" class="block-myoverview" data-region="myoverview">
-    <div class="pull-right d-none d-sm-inline">
+    <div class="actions">
+        <div id="search_form" class="pull-right d-sm-inline">
         <input type="text" class="form-control" placeholder="{{#str}}search{{/str}}" data-toggle="esco-filter" />
-    </div>
-    <div class="pull-right d-none d-sm-inline">
-        <div class="btn-group">
-            {{^display_card_mode}}
-                <a href="?display_mode=card" class="btn" title="Format Carte">
-                    <i class="fa fa-image"></i>
-                </a>
-            {{/display_card_mode}}
-            {{^display_list_mode}}
-                <a href="?display_mode=list" class="btn" title="Format Liste">
-                    <i class="fa fa-list"></i>
-                </a>
-            {{/display_list_mode}}
         </div>
-    </div>
-    <div class="pull-right d-none d-sm-inline">
-        <div class="dropdown">
-            <a href="#" class="btn dropdown-toggle" title="" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{sort_label}}
-            </a>
-            <div class="dropdown-menu dropdown-menu-right menu">
-                <a class="dropdown-item menu-action" href="?sort_field=fullname&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}fullnamecourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=fullname&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}fullnamecourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=shortname&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}shortnamecourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=shortname&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}shortnamecourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=idnumber&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}idnumbercourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=idnumber&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}idnumbercourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=timecreated&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}timecreatedcourse{{/str}}{{/str}}</a>
-                <a class="dropdown-item menu-action" href="?sort_field=timecreated&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}timecreatedcourse{{/str}}{{/str}}</a>
+        <div id="display_mode" class="pull-right d-sm-inline">
+            <div class="btn-group">
+                {{^display_card_mode}}
+                    <a href="?display_mode=card" class="btn" title="Format Carte">
+                        <i class="fa fa-image"></i>
+                    </a>
+                {{/display_card_mode}}
+                {{^display_list_mode}}
+                    <a href="?display_mode=list" class="btn" title="Format Liste">
+                        <i class="fa fa-list"></i>
+                    </a>
+                {{/display_list_mode}}
+            </div>
+        </div>
+        <div id="sorts" class="pull-right d-sm-inline">
+            <div class="dropdown">
+                <a href="#" class="btn dropdown-toggle" title="" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{sort_label}}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right menu">
+                    <a class="dropdown-item menu-action" href="?sort_field=fullname&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}fullnamecourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=fullname&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}fullnamecourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=shortname&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}shortnamecourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=shortname&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}shortnamecourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=idnumber&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}idnumbercourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=idnumber&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}idnumbercourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=timecreated&sort_order=asc">{{#str}}sortbyx,moodle,{{#str}}timecreatedcourse{{/str}}{{/str}}</a>
+                    <a class="dropdown-item menu-action" href="?sort_field=timecreated&sort_order=desc">{{#str}}sortbyxreverse,moodle,{{#str}}timecreatedcourse{{/str}}{{/str}}</a>
+                </div>
             </div>
         </div>
     </div>
