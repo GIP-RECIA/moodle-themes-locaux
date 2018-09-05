@@ -207,6 +207,7 @@ body {
     .card.courses-view-course-item:hover .text-muted {
       color: inherit !important; }
   .card.courses-view-course-item .card-img-top {
+    display: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -218,6 +219,8 @@ body {
 
 .card-deck .card {
   flex-basis: calc(33% - 30px); }
+  .card-deck .card .card-img-top {
+    display: block; }
 
 #nav-drawer {
   top: 41px;

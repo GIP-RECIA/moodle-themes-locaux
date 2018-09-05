@@ -29,10 +29,13 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
     {
         global $USER;
         $view_data = $this->export_for_template();
+        $this->handleDisplay();
 
         $view_data["viewingtimeline"] = false;
         $view_data["viewingcourses"] = false;
         $view_data["viewingroles"] = false;
+        $view_data["display_card_mode"] = get_user_preferences("block_myoverview_display_mode", "card") == "card";
+        $view_data["display_list_mode"] = get_user_preferences("block_myoverview_display_mode", "card") == "list";
 
         $view_data["sort"] = "default";
 
@@ -111,6 +114,14 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
             'viewingtimeline' => $viewingtimeline,
             'viewingcourses' => $viewingcourses
         ];
+    }
+
+    private function handleDisplay(){
+
+        $display_mode = optional_param('display_mode', null, PARAM_ALPHA);
+        if (!is_null($display_mode)) {
+            set_user_preference('block_myoverview_display_mode', $display_mode);
+        }
     }
 
     private function getSort()

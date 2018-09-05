@@ -221,5 +221,12 @@ function theme_esco_user_preferences() {
         'choices' => array("asc","desc"),
     );
 
+    $preferences['block_myoverview_display_mode'] = array(
+        'type' => PARAM_ALPHA,
+        'null' => NULL_NOT_ALLOWED,
+        'default' => "card",
+        'choices' => array("card","list"),
+    );
+
     return $preferences;
 }

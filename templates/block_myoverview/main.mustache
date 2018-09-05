@@ -28,8 +28,22 @@
         <input type="text" class="form-control" placeholder="{{#str}}search{{/str}}" data-toggle="esco-filter" />
     </div>
     <div class="pull-right d-none d-sm-inline">
+        <div class="btn-group">
+            {{^display_card_mode}}
+                <a href="?display_mode=card" class="btn" title="Format Carte">
+                    <i class="fa fa-image"></i>
+                </a>
+            {{/display_card_mode}}
+            {{^display_list_mode}}
+                <a href="?display_mode=list" class="btn" title="Format Liste">
+                    <i class="fa fa-list"></i>
+                </a>
+            {{/display_list_mode}}
+        </div>
+    </div>
+    <div class="pull-right d-none d-sm-inline">
         <div class="dropdown">
-            <a href="#" class="btn dropdown-toggle" href="#" title="" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="btn dropdown-toggle" title="" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{sort_label}}
             </a>
             <div class="dropdown-menu dropdown-menu-right menu">

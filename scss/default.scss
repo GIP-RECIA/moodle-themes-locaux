@@ -503,6 +503,7 @@ body {
       }
     }
     .card-img-top{
+      display : none;
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -522,6 +523,9 @@ body {
 .card-deck {
   .card {
     flex-basis: calc(33% - 30px);
+    .card-img-top{
+      display : block;
+    }
   }
 }
 
