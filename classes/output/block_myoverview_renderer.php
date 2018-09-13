@@ -34,6 +34,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         $view_data["viewingtimeline"] = false;
         $view_data["viewingcourses"] = false;
         $view_data["viewingroles"] = false;
+
         $view_data["display_card_mode"] = get_user_preferences("block_myoverview_display_mode", "card") == "card";
         $view_data["display_list_mode"] = get_user_preferences("block_myoverview_display_mode", "card") == "list";
 
@@ -95,24 +96,13 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
         $nocoursesurl = $this->image_url('courses', 'block_myoverview')->out();
         $noeventsurl = $this->image_url('activities', 'block_myoverview')->out();
 
-        // Now, set the tab we are going to be viewing.
-        $viewingtimeline = false;
-        $viewingcourses = false;
-        if ($this->tab == BLOCK_MYOVERVIEW_TIMELINE_VIEW) {
-            $viewingtimeline = true;
-        } else {
-            $viewingcourses = true;
-        }
-
         return [
             'midnight' => usergetmidnight(time()),
             'coursesview' => $coursesview->export_for_template($this),
             'urls' => [
                 'nocourses' => $nocoursesurl,
                 'noevents' => $noeventsurl
-            ],
-            'viewingtimeline' => $viewingtimeline,
-            'viewingcourses' => $viewingcourses
+            ]
         ];
     }
 
