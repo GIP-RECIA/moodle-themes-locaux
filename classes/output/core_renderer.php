@@ -37,6 +37,7 @@ use single_button;
 use paging_bar;
 use context_course;
 use pix_icon;
+use popup_action;
 
 defined('MOODLE_INTERNAL') || die;
 
