@@ -666,6 +666,20 @@ body.agricol {
   }
 }
 
+.path-mod-lesson {
+     .answeroption .fcheckbox input,
+     .answeroptiongroup input {
+        position: relative;
+     } 
+     .form-inline label.form-check-label {
+        display: flex;
+     }
+}
+
+.que.multianswer .form-inline {
+     display: inline;
+}
+
 @import "_table";
 
 @media all and (max-width: 991px) {
