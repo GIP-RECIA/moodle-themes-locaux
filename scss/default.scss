@@ -76,6 +76,9 @@ $main-color: $netocentre;
       }
     }
   }
+  #page #page-header #page-title .singlebutton .btn {
+          background-color: $color;
+  }
 }
 
 @font-face {
@@ -574,6 +577,15 @@ body {
     .page-header-image {
       display: none;
     }
+    .singlebutton .btn {
+      position: fixed;
+      right: 1px;
+      z-index: 10;
+      background-color: $main-color;
+      color: #FFF;
+      padding: 0.15rem 0.35rem;
+      border-radius: 5px !important;
+    } 
   }
 }
 
@@ -678,13 +690,6 @@ body.agricol {
 
 .que.multianswer .form-inline {
      display: inline;
-}
-
-#page #page-header #page-title .singlebutton .btn {
-     position: fixed;
-/*     top: 50px;*/
-     right: 15px;
-     z-index: 10;
 }
 
 @import "_table";
