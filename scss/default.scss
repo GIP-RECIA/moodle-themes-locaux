@@ -680,6 +680,13 @@ body.agricol {
      display: inline;
 }
 
+#page #page-header #page-title .singlebutton .btn {
+     position: fixed;
+/*     top: 50px;*/
+     right: 15px;
+     z-index: 10;
+}
+
 @import "_table";
 
 @media all and (max-width: 991px) {
@@ -702,5 +709,8 @@ body.agricol {
     .my-5{
       margin : 10px auto !important;
     }
+  }
+  #page #page-header #page-title .singlebutton .btn {
+     right: 1px;
   }
 }
