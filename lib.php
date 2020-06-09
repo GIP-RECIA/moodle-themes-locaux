@@ -160,6 +160,9 @@ function theme_esco_etablissement_color($etablissement){
     if(in_array("www.touraine-eschool.fr", $etablissement->escodomaines)){
         return "touraine";
     }
+    if(in_array("colleges41.fr", $etablissement->escodomaines)){
+        return "colleges41";
+    }
     if(strtolower($etablissement->entetablissementministeretutelle) === "agriculture"){
         return "agricol";
     }
@@ -174,6 +177,8 @@ function theme_esco_etablissement_logo($etablissement){
             return $OUTPUT->image_url('NOCMoodle_blanc', "theme");
         case "touraine" :
             return $OUTPUT->image_url('TESMoodle_blanc', "theme");
+        case "colleges41" :
+            return $OUTPUT->image_url('C41Moodle_blanc', "theme");
     }
 }
 

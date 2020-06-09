@@ -1,6 +1,7 @@
 $netocentre: #24b2f3;
 $touraine: #C60440;
 $agricol: #2d8c17;
+$colleges41: #009FE3;
 
 $blue: #25b2f3;
 
@@ -621,7 +622,7 @@ footer.netocentre#page-footer {
       text-decoration: none;
     }
   }
-  #netocentre, #touraine-eschool{
+  #netocentre, #touraine-eschool, #colleges41{
     img{
       height : 40px;
     }
@@ -629,11 +630,14 @@ footer.netocentre#page-footer {
   #touraine-eschool{
     display : none;
   }
+  #colleges41{
+    display : none;
+  }
   #partners{
     img{
       height : 40px;
     }
-    #touraine, #agricole{
+    #touraine, #agricole, #colleges41{
       display : none;
     }
   }
@@ -656,6 +660,26 @@ body.touraine {
       }
     }
     #touraine-eschool{
+      display : block;
+    }
+    #netocentre{
+      display : none;
+    }
+  }
+}
+
+body.colleges41 {
+  @include add-etablissment($colleges41);
+  footer.netocentre#page-footer{
+    #partners{
+      #colleges41{
+        display : initial;
+      }
+      #centre-val-de-loire{
+        display : none;
+      }
+    }
+    #colleges41{
       display : block;
     }
     #netocentre{
