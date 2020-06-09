@@ -132,7 +132,6 @@ function theme_esco_process_ldap_result($ldap_entries, $default = array()){
         if(empty($etablissement->escostructurenomcourt)){
             $etablissement->escostructurenomcourt = $etablissement->entstructurenomcourant;
         }
-	$etablissement->escostructurenomcourt = str_replace(‘$’, ‘ ‘, $etablissement->escostructurenomcourt);
         if(!is_array($etablissement->escodomaines)){
             $etablissement->escodomaines = array($etablissement->escodomaines);
         }
