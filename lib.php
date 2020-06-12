@@ -163,6 +163,9 @@ function theme_esco_etablissement_color($etablissement){
     if(in_array("colleges41.fr", $etablissement->escodomaines)){
         return "colleges41";
     }
+    if(in_array("www.chercan.fr", $etablissement->escodomaines)){
+        return "chercan";
+    }
     if(strtolower($etablissement->entetablissementministeretutelle) === "agriculture"){
         return "agricol";
     }
@@ -179,6 +182,8 @@ function theme_esco_etablissement_logo($etablissement){
             return $OUTPUT->image_url('TESMoodle_blanc', "theme");
         case "colleges41" :
             return $OUTPUT->image_url('C41Moodle_blanc', "theme");
+        case "chercan" :
+            return $OUTPUT->image_url('ChercanMoodle_blanc', "theme");
     }
 }
 

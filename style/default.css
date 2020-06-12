@@ -270,13 +270,13 @@ footer.netocentre#page-footer {
     footer.netocentre#page-footer a:hover {
       color: #24b2f3;
       text-decoration: none; }
-  footer.netocentre#page-footer #netocentre img, footer.netocentre#page-footer #touraine-eschool #colleges41 img {
+  footer.netocentre#page-footer #netocentre img, footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan img {
     height: 40px; }
-  footer.netocentre#page-footer #touraine-eschool #colleges41 {
+  footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan {
     display: none; }
   footer.netocentre#page-footer #partners img {
     height: 40px; }
-  footer.netocentre#page-footer #partners #touraine #colleges41, footer.netocentre#page-footer #partners #agricole {
+  footer.netocentre#page-footer #partners #touraine #colleges41 #chercan, footer.netocentre#page-footer #partners #agricole {
     display: none; }
 
 @media screen and (max-width: 991px) {
@@ -360,6 +360,46 @@ body.colleges41 footer.netocentre#page-footer #partners #centre-val-de-loire {
 body.colleges41 footer.netocentre#page-footer #colleges41 {
   display: block; }
 body.colleges41 footer.netocentre#page-footer #netocentre {
+  display: none; }
+
+body.chercan.btn-primary {
+  background: #004899;
+  border-color: #004899; }
+  body.chercan.btn-primary:hover, body.chercan.btn-primary:focus {
+    background: #0040ff;
+    border-color: #0040ff; }
+body.chercan .progress .progress-bar {
+  background: #004899; }
+body.chercan .navbar.navbar-netocentre {
+  background: #004899; }
+  body.chercan .navbar.navbar-netocentre .dropdown-menu .dropdown-item:hover {
+    background: #004899; }
+body.chercan .block .card-body .card-title::before {
+  background: #004899; }
+body.chercan .nav-pills .nav-link {
+  color: #004899; }
+  body.chercan .nav-pills .nav-link.active {
+    background: #004899;
+    color: #FFF; }
+  body.chercan .nav-pills .nav-link:hover {
+    color: #FFF;
+    background: #0040ff; }
+body.chercan .card.courses-view-course-item:hover {
+  border-color: #004899; }
+body.chercan .pagination .page-item a {
+  color: #004899;
+  border: none; }
+body.chercan .pagination .page-item.active a {
+  border: none;
+  color: #FFF;
+  background: #004899; }
+body.chercan footer.netocentre#page-footer #partners #chercan {
+  display: initial; }
+body.chercan footer.netocentre#page-footer #partners #centre-val-de-loire {
+  display: none; }
+body.chercan footer.netocentre#page-footer #chercan {
+  display: block; }
+body.chercan footer.netocentre#page-footer #netocentre {
   display: none; }
 
 body.agricol.btn-primary {
