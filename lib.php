@@ -166,6 +166,12 @@ function theme_esco_etablissement_color($etablissement){
     if(in_array("www.chercan.fr", $etablissement->escodomaines)){
         return "chercan";
     }
+    if(in_array("e-college.indre.fr", $etablissement->escodomaines)){
+        return "colleges36";
+    }
+    if(in_array("mon-e-college.loiret.fr", $etablissement->escodomaines)){
+        return "colleges45";
+    }
     if(strtolower($etablissement->entetablissementministeretutelle) === "agriculture"){
         return "agricol";
     }
@@ -184,6 +190,10 @@ function theme_esco_etablissement_logo($etablissement){
             return $OUTPUT->image_url('C41Moodle_blanc', "theme");
         case "chercan" :
             return $OUTPUT->image_url('ChercanMoodle_blanc', "theme");
+        case "colleges36" :
+            return $OUTPUT->image_url('C36Moodle_blanc', "theme");
+        case "colleges45" :
+            return $OUTPUT->image_url('C45Moodle_blanc', "theme");
     }
 }
 
