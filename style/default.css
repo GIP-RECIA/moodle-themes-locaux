@@ -275,7 +275,8 @@ footer.netocentre#page-footer {
   footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan #colleges36 #colleges45 #colleges28{
     display: none; }
   footer.netocentre#page-footer #partners img {
-    height: 40px; }
+    height: 40px;
+    padding-right: 0.5em; }
   footer.netocentre#page-footer #partners #touraine #colleges41 #chercan #colleges36 #colleges45 #colleges28, footer.netocentre#page-footer #partners #agricole {
     display: none; }
 
