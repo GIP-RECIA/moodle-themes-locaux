@@ -172,6 +172,9 @@ function theme_esco_etablissement_color($etablissement){
     if(in_array("mon-e-college.loiret.fr", $etablissement->escodomaines)){
         return "colleges45";
     }
+    if(in_array("www.colleges-eureliens.fr", $etablissement->escodomaines)){
+        return "colleges28";
+    }
     if(strtolower($etablissement->entetablissementministeretutelle) === "agriculture"){
         return "agricol";
     }
@@ -194,6 +197,8 @@ function theme_esco_etablissement_logo($etablissement){
             return $OUTPUT->image_url('C36Moodle_blanc', "theme");
         case "colleges45" :
             return $OUTPUT->image_url('C45Moodle_blanc', "theme");
+        case "colleges28" :
+            return $OUTPUT->image_url('C28Moodle_blanc', "theme");
     }
 }
 

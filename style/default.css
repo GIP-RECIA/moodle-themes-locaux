@@ -270,13 +270,13 @@ footer.netocentre#page-footer {
     footer.netocentre#page-footer a:hover {
       color: #24b2f3;
       text-decoration: none; }
-  footer.netocentre#page-footer #netocentre img, footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan #colleges36 #colleges45 img {
+  footer.netocentre#page-footer #netocentre img, footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan #colleges36 #colleges45 #colleges28 img {
     height: 40px; }
-  footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan #colleges36 #colleges45 {
+  footer.netocentre#page-footer #touraine-eschool #colleges41 #chercan #colleges36 #colleges45 #colleges28{
     display: none; }
   footer.netocentre#page-footer #partners img {
     height: 40px; }
-  footer.netocentre#page-footer #partners #touraine #colleges41 #chercan #colleges36 #colleges45, footer.netocentre#page-footer #partners #agricole {
+  footer.netocentre#page-footer #partners #touraine #colleges41 #chercan #colleges36 #colleges45 #colleges28, footer.netocentre#page-footer #partners #agricole {
     display: none; }
 
 @media screen and (max-width: 991px) {
@@ -480,6 +480,46 @@ body.colleges45 footer.netocentre#page-footer #partners #centre-val-de-loire {
 body.colleges45 footer.netocentre#page-footer #colleges45 {
   display: block; }
 body.colleges45 footer.netocentre#page-footer #netocentre {
+  display: none; }
+
+body.colleges28.btn-primary {
+  background: #303030;
+  border-color: #303030; }
+  body.colleges28.btn-primary:hover, body.colleges28.btn-primary:focus {
+    background: #282828;
+    border-color: #282828; }
+body.colleges28 .progress .progress-bar {
+  background: #303030; }
+body.colleges28 .navbar.navbar-netocentre {
+  background: #303030; }
+  body.colleges28 .navbar.navbar-netocentre .dropdown-menu .dropdown-item:hover {
+    background: #303030; }
+body.colleges28 .block .card-body .card-title::before {
+  background: #303030; }
+body.colleges28 .nav-pills .nav-link {
+  color: #303030; }
+  body.colleges28 .nav-pills .nav-link.active {
+    background: #303030;
+    color: #FFF; }
+  body.colleges28 .nav-pills .nav-link:hover {
+    color: #FFF;
+    background: #282828; }
+body.colleges28 .card.courses-view-course-item:hover {
+  border-color: #303030; }
+body.colleges28 .pagination .page-item a {
+  color: #303030;
+  border: none; }
+body.colleges28 .pagination .page-item.active a {
+  border: none;
+  color: #FFF;
+  background: #303030; }
+body.colleges28 footer.netocentre#page-footer #partners #colleges28 {
+  display: initial; }
+body.colleges28 footer.netocentre#page-footer #partners #centre-val-de-loire {
+  display: none; }
+body.colleges28 footer.netocentre#page-footer #colleges28 {
+  display: block; }
+body.colleges28 footer.netocentre#page-footer #netocentre {
   display: none; }
 
 body.agricol.btn-primary {
