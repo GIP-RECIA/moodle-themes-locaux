@@ -160,7 +160,7 @@ function theme_esco_etablissement_color($etablissement){
     if(in_array("www.touraine-eschool.fr", $etablissement->escodomaines)){
         return "touraine";
     }
-    if(in_array("colleges41.fr", $etablissement->escodomaines)){
+    if(in_array("colleges41.fr", $etablissement->escodomaines) || in_array("ent.colleges41.fr", $etablissement->escodomaines)){
         return "colleges41";
     }
     if(in_array("www.chercan.fr", $etablissement->escodomaines)){
