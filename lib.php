@@ -21,6 +21,9 @@
  * @copyright  GIP Récia - Pierre LEJEUNE
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
+
 define("THEME_ESCO_CACHE_LIFETIME", 86400);
 
 define('BLOCK_MYOVERVIEW_ROLES_VIEW', 'roles');

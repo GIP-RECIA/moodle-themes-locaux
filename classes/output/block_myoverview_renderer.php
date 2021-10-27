@@ -29,6 +29,7 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
     {
         global $USER;
         $view_data = $this->export_for_template();
+        //$view_data = $main->export_for_template($this);
         $this->handleDisplay();
 
         $view_data["viewingtimeline"] = false;
@@ -287,10 +288,10 @@ class block_myoverview_renderer extends \block_myoverview\output\renderer
             'context' => $context
         ]);
         $exportedcourse = $exporter->export($this);
-        $course_object = new \course_in_list($course);
+        $course_object = new \core_course_list_element($course);
         $exportedcourse->summary = content_to_text($exportedcourse->summary, $exportedcourse->summaryformat);
 
-        $course = new \course_in_list($course);
+        $course = new \core_course_list_element($course);
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
             if ($isimage) {

@@ -35,8 +35,8 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . "/course/classes/management_renderer.php");
 
 use html_writer;
-use coursecat;
-use theme_boost\output\core_course\management\renderer as BaseRenderer;
+use core_course_category;
+use theme_boost\output\core_renderer;
 
 /**
  * Main renderer for the course management pages.
@@ -45,15 +45,15 @@ use theme_boost\output\core_course\management\renderer as BaseRenderer;
  * @copyright 2013 Sam Hemelryk
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class renderer extends BaseRenderer {
+class renderer extends core_renderer {
 
     /**
      * Presents a course category listing.
      *
-     * @param coursecat $category The currently selected category. Also the category to highlight in the listing.
+     * @param core_course_category $category The currently selected category. Also the category to highlight in the listing.
      * @return string
      */
-    public function category_listing(coursecat $category = null) {
+    public function category_listing(core_course_category $category = null) {
         if ($category === null) {
             $selectedparents = array();
             $selectedcategory = null;
@@ -66,7 +66,7 @@ class renderer extends BaseRenderer {
         $catatlevel[] = array_shift($selectedparents);
         $catatlevel = array_unique($catatlevel);
 
-        $listing = coursecat::get(0)->get_children();
+        $listing = core_course_category::get(0)->get_children();
 
         $attributes = array(
             'class' => 'ml-1 list-unstyled',
