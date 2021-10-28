@@ -26,8 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 define("THEME_ESCO_CACHE_LIFETIME", 86400);
 
-define('BLOCK_MYOVERVIEW_ROLES_VIEW', 'roles');
-
 function theme_esco_etablissement(){
     global $PAGE, $DB;
 
@@ -227,34 +225,4 @@ function theme_esco_ldap_config(){
 
     $config["branch"] = str_ireplace("people","structures",$config["branch"]);
     return $config;
-}
-
-/**
- * Returns the name of the user preferences as well as the details this plugin uses.
- *
- * @return array
- */
-function theme_esco_user_preferences() {
-    $preferences = array();
-    $preferences['block_myoverview_sort_field'] = array(
-        'type' => PARAM_ALPHA,
-        'null' => NULL_ALLOWED,
-        'choices' => array("fullname","shortname","id","timecreated"),
-    );
-
-    $preferences['block_myoverview_sort_order'] = array(
-        'type' => PARAM_ALPHA,
-        'null' => NULL_NOT_ALLOWED,
-        'default' => "asc",
-        'choices' => array("asc","desc"),
-    );
-
-    $preferences['block_myoverview_display_mode'] = array(
-        'type' => PARAM_ALPHA,
-        'null' => NULL_NOT_ALLOWED,
-        'default' => "card",
-        'choices' => array("card","list"),
-    );
-
-    return $preferences;
 }
