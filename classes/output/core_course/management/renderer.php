@@ -36,7 +36,6 @@ require_once($CFG->dirroot . "/course/classes/management_renderer.php");
 
 use html_writer;
 use core_course_category;
-use theme_boost\output\core_renderer;
 
 /**
  * Main renderer for the course management pages.
@@ -45,7 +44,7 @@ use theme_boost\output\core_renderer;
  * @copyright 2013 Sam Hemelryk
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class renderer extends core_renderer {
+class renderer extends \core_course_management_renderer {
 
     /**
      * Presents a course category listing.
