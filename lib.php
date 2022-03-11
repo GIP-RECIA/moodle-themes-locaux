@@ -26,6 +26,46 @@ defined('MOODLE_INTERNAL') || die();
 
 define("THEME_ESCO_CACHE_LIFETIME", 86400);
 
+// Ajout méthode temporaire pour ajouter le domaine pour système de refresh session
+/**
+ * Retourne la liste des domaines de l'utilisateur
+ *
+ * @return array<string> La liste des domaines domaines de l'utilisateur
+ */
+function domains_user(){
+    global $USER, $DB;
+
+    $cache_key = "user_" . $USER->username;
+    $cache = cache::make_from_params(cache_store::MODE_APPLICATION, 'theme_esco', 'users_domaines');
+    $user_domains_cache = $cache->get($cache_key);
+
+    if ($user_domains_cache && $user_domains_cache['created'] < time() + THEME_ESCO_CACHE_LIFETIME){
+        return $user_domains_cache["data"];
+    }
+
+    $ldap_config = theme_esco_ldap_config();
+    $branch = explode(',', $ldap_config["branch"]);
+    $branch[0] = "ou=people";
+    $ldap_connection = ldap_connect($ldap_config["host_url"]);
+    ldap_bind($ldap_connection, $ldap_config["bind_dn"], $ldap_config["bind_pw"]);
+    $results = ldap_search($ldap_connection, implode(',', $branch), sprintf("(uid=%s)",$USER->username));
+    $results = ldap_get_entries($ldap_connection, $results);
+    $domains = [];
+
+    if(isset($results[0])){
+        foreach($results[0]['escodomaines'] as $key => $value){
+            if ($key !== "count") {
+                $domains[] = $value;
+            }
+        }
+    }
+
+    ldap_close($ldap_connection);
+    $cache->set($cache_key, array("data" => $domains, 'created' => time()));
+
+    return $domains;
+}
+
 function theme_esco_etablissement(){
     global $PAGE, $DB;
 

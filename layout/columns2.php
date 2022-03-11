@@ -47,7 +47,9 @@ if(!is_null($etablissement)){
 $extraclasses[] = theme_esco_etablissement_color($etablissement);
 $logo = theme_esco_etablissement_logo($etablissement);
 
-$bodyattributes = $OUTPUT->body_attributes($extraclasses);
+// Modification ligne temporaire pour ajouter le domaine pour système de refresh session
+$bodyattributes = $OUTPUT->body_attributes($extraclasses).' data-domains="'.implode(',', domains_user()).'"';
+//$bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
