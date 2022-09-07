@@ -29,3 +29,4 @@ $string['pluginname'] = 'ESCO';
 $string['roles_tab'] = 'Par Rôle';
 $string['timeline_tab'] = 'Par Chronologie';
 $string['courses_tab'] = 'Par Statut';
+$string['region-side-pre'] = 'Right';
