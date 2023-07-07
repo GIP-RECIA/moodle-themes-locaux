@@ -29,39 +29,8 @@ $THEME->doctype = 'html5';
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
 $THEME->parents = ['boost'];
-
-$THEME->scss = function() {
-    $parentconfig = theme_config::load('boost');
-    $scss = theme_boost_get_main_scss_content($parentconfig);
-    $scss .= file_get_contents(__DIR__ . '/scss/default.scss');
-    return $scss;
-};
-
 $THEME->enable_dock = false;
-$THEME->usefallback = true;
-
 $THEME->yuicssmodules = array();
-
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
-$THEME->requiredblocks = 'navigation,settings';
-$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
-
-if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
-    $THEME->javascripts[] = 'html5shiv';
-}
-//$THEME->javascripts_footer[] = 'table';
-
-$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_DEFAULT;
-
-$THEME->javascripts_footer = array(
-    'moodlebootstrap',
-);
-
-if($CFG->allowuserthemes = 1){
-    set_config('allowuserthemes',0);
-}
-
-if($CFG->allowcategorythemes = 1){
-    set_config('allowcategorythemes',0);
-}
+$THEME->requiredblocks = '';
+$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
