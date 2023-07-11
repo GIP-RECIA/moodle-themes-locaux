@@ -1,0 +1,214 @@
+$netocentre: #24b2f3;
+$touraine: #C60440;
+$agricol: #2d8c17;
+$colleges41: #009FE3;
+$chercan: #004899;
+$colleges36: #0069B3;
+$colleges45: #26448a;
+$colleges28: #303030;
+
+$blue: #25b2f3;
+
+$main-color: $netocentre;
+
+@mixin add-etablissment($color) {
+    /*&.btn-primary {
+      background: $color;
+      border-color: $color;
+      &:hover, &:focus {
+        background: darken($color, 20);
+        border-color: darken($color, 20);
+      }
+    }
+    .progress {
+      .progress-bar {
+        background: $color;
+      }
+    }
+  
+    .navbar.navbar-netocentre {
+      background: $color;
+      .dropdown-menu {
+        .dropdown-item {
+          &:hover {
+            background: $color;
+          }
+        }
+      }
+    }
+  
+    .block {
+      .card-body {
+        .card-title {
+          &::before {
+            background: $color;
+          }
+        }
+      }
+    }
+    .nav-pills {
+      .nav-link {
+        color: $color;
+        &.active {
+          background: $color;
+          color : #FFF;
+        }
+        &:hover {
+          color: #FFF;
+          background: darken($color, 10);
+        }
+      }
+    }
+    .card {
+      &.courses-view-course-item {
+        &:hover{
+          border-color: $color;
+        }
+      }
+    }
+    .pagination {
+      .page-item {
+        a {
+          color: $color;
+          border: none;
+        }
+        &.active {
+          a {
+            border: none;
+            color: #FFF;
+            background: $color;
+          }
+        }
+      }
+    }
+    #page #page-header #page-title .singlebutton .btn {
+            background-color: $color;
+    }
+  }*/
+}
+
+/* Footer */
+footer.netocentre#page-footer {
+    /*font-family: "Roboto Condensed", sans-serif;
+    padding: 20px ;
+    background: #d0d0d0 !important;
+    color: #888;*/
+    a {
+        color: inherit;
+        &:hover {
+            color: $main-color;
+            text-decoration: none;
+        }
+    }
+    img{
+        height : 40px;
+    }
+    .logo{
+        display: none;
+    }
+    .part-academie-orleans-tours{
+        display : initial;
+    }
+    #partners img{
+        margin-right: 10px;
+    }
+}
+
+/* Spécificité des thèmes */
+body.theme-netocentre {
+    @include add-etablissment($touraine);
+    footer.netocentre#page-footer{
+        .logo-netocentre,
+        .part-centre-val-de-loire{
+            display : initial;
+        }
+    }
+}
+
+body.theme-touraine {
+    @include add-etablissment($touraine);
+    footer.netocentre#page-footer{
+        .logo-touraine{
+            display : block;
+        }
+        .part-touraine{
+            display : initial;
+        }
+    }
+}
+  
+body.theme-colleges41 {
+    @include add-etablissment($colleges41);
+    footer.netocentre#page-footer{
+        .logo-colleges41{
+            display : block;
+        }
+        .part-colleges41{
+            display : initial;
+        }
+    }
+}
+  
+body.theme-chercan {
+    @include add-etablissment($chercan);
+    footer.netocentre#page-footer{
+        .logo-chercan{
+            display : block;
+        }
+        .part-chercan{
+            display : initial;
+        }
+    }
+}
+  
+body.theme-colleges36 {
+    @include add-etablissment($colleges36);
+    footer.netocentre#page-footer{
+        .logo-colleges36{
+            display : block;
+        }
+        .part-colleges36{
+            display : initial;
+        }
+    }
+}
+  
+body.theme-colleges45 {
+    @include add-etablissment($colleges45);
+    footer.netocentre#page-footer{
+        .logo-colleges45{
+            display : block;
+        }
+        .part-colleges45{
+            display : initial;
+        }
+    }
+}
+  
+  body.theme-colleges28 {
+    @include add-etablissment($colleges28);
+    footer.netocentre#page-footer{
+        .logo-colleges28{
+            display : block;
+        }
+        .part-colleges28{
+            display : initial;
+        }
+    }
+}
+  
+body.theme-agricol {
+    @include add-etablissment($agricol);
+    footer.netocentre#page-footer{
+        .logo-netocentre{
+            display : block;
+        }
+        .part-agricole,
+        .part-centre-val-de-loire{
+            display : initial;
+        }
+        .part-academie-orleans-tours{
+            display : none;
+        }
+    }
+}
