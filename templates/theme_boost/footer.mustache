@@ -164,3 +164,35 @@
         </div>
     </div>
 </footer>
+
+{{! transforme les tableaux en cards si pas assez large }}
+{{#js}}
+require([], () => {
+    let tables = document.getElementsByTagName('table');
+    Array.from(tables).forEach(function(table) {
+        if (!table.classList.contains('calendartable')) {
+            let headers = [];
+            if (!table.classList.contains('table-responsive-to-cards')) {
+                table.classList.add('table-responsive-to-cards');
+            }
+            var thElements = table.querySelectorAll("thead th");
+            Array.from(thElements).forEach(function(th) {
+                let text = th.textContent;
+                let spanElements = th.querySelectorAll("span.accesshide");
+                Array.from(spanElements).forEach(function(span) {
+                    console.log(span.textContent);
+                    text = text.replace(span.textContent, "");
+                });
+                headers.push(text);
+            });
+            let trElements = table.querySelectorAll("tbody tr");
+            Array.from(trElements).forEach(function(tr) {
+                let tdElements = tr.querySelectorAll("td");
+                Array.from(tdElements).forEach(function(td, index) {
+                    td.setAttribute("data-label", headers[index]);
+                });
+            });
+        }
+    });
+});
+{{/js}}
