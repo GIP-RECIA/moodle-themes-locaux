@@ -1,5 +1,7 @@
 <?php
 
+defined('MOODLE_INTERNAL') || die;
+
 class theme_esco_core_renderer extends \theme_boost\output\core_renderer {
     /**
      * Returns HTML attributes to use within the body tag. This includes an ID and classes.
