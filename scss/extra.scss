@@ -15,6 +15,9 @@ $main-color: $netocentre;
     .moremenu .nav-link.active {
         border-bottom-color: $color;
     }
+    .nav-link.focus, .nav-link:focus {
+        box-shadow: 0 0 0 0.2rem $color;
+    }
 }
 
 /* Footer */
