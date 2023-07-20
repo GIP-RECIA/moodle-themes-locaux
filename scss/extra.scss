@@ -12,9 +12,9 @@ $blue: #25b2f3;
 $main-color: $netocentre;
 
 @mixin add-etablissment($color) {
-  .moremenu .nav-link.active {
-    border-bottom-color: $color;
-  }
+    .moremenu .nav-link.active {
+        border-bottom-color: $color;
+    }
 }
 
 /* Footer */
@@ -41,6 +41,17 @@ footer.netocentre#page-footer {
     }
 }
 
+nav.navbar a.navbar-brand {
+    padding-left: 55px!important;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 0px center;
+}
+
+nav.navbar a.navbar-brand {
+    background-image: url('https://e-education.recia.fr/images/partners/moodle-netocentre-logo.svg');
+}
+
 /* Spécificité des thèmes */
 body.theme-netocentre {
     @include add-etablissment($netocentre);
@@ -62,6 +73,9 @@ body.theme-touraine {
             display : initial;
         }
     }
+    nav.navbar a.navbar-brand {
+        background-image: url('https://e-education.recia.fr/images/partners/moodle-touraine-logo.svg');
+    }
 }
   
 body.theme-colleges41 {
@@ -73,6 +87,9 @@ body.theme-colleges41 {
         .part-colleges41{
             display : initial;
         }
+    }
+    nav.navbar a.navbar-brand {
+        background-image: url('https://e-education.recia.fr/images/partners/moodle-colleges41-logo.svg');
     }
 }
   
@@ -86,6 +103,9 @@ body.theme-chercan {
             display : initial;
         }
     }
+    nav.navbar a.navbar-brand {
+        background-image: url('https://e-education.recia.fr/images/partners/moodle-chercan-logo.svg');
+    }
 }
   
 body.theme-colleges36 {
@@ -97,6 +117,9 @@ body.theme-colleges36 {
         .part-colleges36{
             display : initial;
         }
+    }
+    nav.navbar a.navbar-brand {
+        background-image: url('https://e-education.recia.fr/images/partners/moodle-colleges36-logo.svg');
     }
 }
   
@@ -110,6 +133,9 @@ body.theme-colleges45 {
             display : initial;
         }
     }
+    nav.navbar a.navbar-brand {
+        background-image: url('https://e-education.recia.fr/images/partners/moodle-colleges45-logo.svg');
+    }
 }
   
 body.theme-colleges28 {
@@ -121,6 +147,9 @@ body.theme-colleges28 {
         .part-colleges28{
             display : initial;
         }
+    }
+    nav.navbar a.navbar-brand {
+        background-image: url('https://e-education.recia.fr/images/partners/moodle-colleges28-logo.svg');
     }
 }
   
