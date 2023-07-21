@@ -36,10 +36,6 @@ define("THEME_ESCO_CACHE_LIFETIME", 86400);
  */
 function domains_user() {
     global $USER, $DB;
-
-    // FIXME: a supprimer
-    return ["lycees.netocentre.fr", "ent.recia.fr"];
-
     // On essaye d'aller récupérer l'information dans le cache
     $cache_key = "user_" . $USER->username;
     $cache = cache::make_from_params(cache_store::MODE_APPLICATION, 'theme_esco', 'users_domaines');
@@ -114,19 +110,7 @@ function theme_esco_etablissement() {
 
     // Si le cache est absent ou invalide
     if(!$etablissement_cache || $etablissement_cache['created'] > time() - THEME_ESCO_CACHE_LIFETIME) {
-        // FIXME: a supprimer
-        $name = $category->name;
-        $etablissement = new stdClass();
-        $etablissement->ou = $name;
-        $etablissement->entstructureuai = null;
-        $etablissement->entetablissementministeretutelle = null;
-        $etablissement->entstructurenomcourant = $name;
-        $etablissement->escostructurenomcourt = $name;
-        $etablissement->escodomaines = ["lycees.netocentre.fr"];
-        $etablissement->id = $category->idnumber;
-
-        // FIXME: a décommenter
-        /*// Connexion au ldap
+        // Connexion au ldap
         $ldap_config = theme_esco_ldap_config();
         $ldap_connection = ldap_connect($ldap_config["host_url"]);
         ldap_bind($ldap_connection, $ldap_config["bind_dn"], $ldap_config["bind_pw"]);
@@ -138,7 +122,7 @@ function theme_esco_etablissement() {
         // On récupère les données du ldap et on les traite pour en faire un objet établissement
         $etablissement = theme_esco_process_ldap_result($results, $category->idnumber, $category->name);
 
-        ldap_close($ldap_connection);*/
+        ldap_close($ldap_connection);
 
         // On remplit le cache pour les appels ultérieurs
         $cache->set($cache_key, array("data" => $etablissement, 'created' => time()));
@@ -171,19 +155,7 @@ function theme_esco_user_etablissement() {
 
     // Si le cache est absent ou invalide
     if (!$etablissement_cache || $etablissement_cache['created'] > time() - THEME_ESCO_CACHE_LIFETIME) {
-        // FIXME: a supprimer
-        $name = "";
-        $etablissement = new stdClass();
-        $etablissement->ou = $name;
-        $etablissement->entstructureuai = null;
-        $etablissement->entetablissementministeretutelle = null;
-        $etablissement->entstructurenomcourant = $name;
-        $etablissement->escostructurenomcourt = $name;
-        $etablissement->escodomaines = ["lycees.netocentre.fr"];
-        $etablissement->id = $USER->profile['etablissementuai'];
-
-        // FIXME: a décommenter
-        /*// Connexion au ldap
+        // Connexion au ldap
         $ldap_config = theme_esco_ldap_config();
         $ldap_connection = ldap_connect($ldap_config["host_url"]);
         ldap_bind($ldap_connection, $ldap_config["bind_dn"], $ldap_config["bind_pw"]);
@@ -195,7 +167,7 @@ function theme_esco_user_etablissement() {
         // On récupère les données du ldap et on les traite pour en faire un objet établissement
         $etablissement = theme_esco_process_ldap_result($results, $USER->profile['etablissementuai']);
 
-        ldap_close($ldap_connection);*/
+        ldap_close($ldap_connection);
 
         // On remplit le cache pour les appels ultérieurs
         $cache->set($cache_key, array("data" => $etablissement, 'created' => time()));

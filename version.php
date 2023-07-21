@@ -25,10 +25,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 
-$plugin->version = '2023070701';
-$plugin->requires = '2022111800';
+$plugin->version = 2023072100;
+$plugin->requires = 2022111800;
 $plugin->component = 'theme_esco';
 $plugin->dependencies = [
-    'theme_boost' => '2022112800',
-    'enrol_simplesco' => '2016102100',
+    'theme_boost' => 2022112800,
+    'enrol_simplesco' => 2023072100,
 ];
