@@ -35,4 +35,5 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
+$THEME->prescsscallback = 'theme_esco_scss_to_prepend';
 $THEME->extrascsscallback = 'theme_esco_get_extra_scss';

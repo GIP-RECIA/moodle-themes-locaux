@@ -313,6 +313,13 @@ function theme_esco_ldap_config() {
 }
 
 /**
+ * Ajoute le scss supplémentaire du thème au début du scss du thème boost
+ */
+function theme_esco_scss_to_prepend($theme) { 
+    return file_get_contents(__DIR__ . '/scss/prepend.scss');                                                           
+}
+
+/**
  * Ajoute le scss supplémentaire du thème à la fin du scss du thème boost
  */
 function theme_esco_get_extra_scss($theme) { 
