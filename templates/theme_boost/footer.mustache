@@ -108,8 +108,12 @@ require([], () => {
     Array.from(tables).forEach(function(table) {
         if (!table.classList.contains('calendartable')) {
             let headers = [];
-            if (!table.classList.contains('table-responsive-to-cards')) {
-                table.classList.add('table-responsive-to-cards');
+            if (table.querySelectorAll("tbody tr").length > 0) {
+		        if (!table.classList.contains('table-responsive-to-cards')) {
+		            table.classList.add('table-responsive-to-cards');
+		        }
+            } else {
+                table.classList.remove('table-responsive-to-cards');
             }
             var thElements = table.querySelectorAll("thead th");
             Array.from(thElements).forEach(function(th) {
